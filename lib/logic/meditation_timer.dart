@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class DropdownButtonTimer extends ChangeNotifier {
   int? _time;
-  int _timeInSec = 0;
-  int _maxTime = 0;
+  int _timeInSec = 1;
+  int _maxTime = 1;
   Timer? _timer;
 
   int? get time => _time;

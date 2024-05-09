@@ -7,10 +7,10 @@ import '../logic/meditation_timer.dart';
 class MeditationPage extends StatelessWidget {
   const MeditationPage({super.key});
 
-  Widget createButton(button) {
-    final isRunning = button.timer == null ? false : button.timer!.isActive;
+  Widget createButton(timer) {
+    final isRunning = timer.timer == null ? false : timer.timer!.isActive;
     final isCompleted =
-        button.timeInSec == button.maxTime || button.timeInSec == 0;
+        timer.timeInSec == timer.maxTime || timer.timeInSec == 0;
 
     return isRunning || !isCompleted
         ? Row(
@@ -19,9 +19,9 @@ class MeditationPage extends StatelessWidget {
               TimerButton(
                 onClicked: () {
                   if (isRunning) {
-                    button.stopTimer(reset: false);
+                    timer.stopTimer(reset: false);
                   } else {
-                    button.startTimer();
+                    timer.startTimer();
                   }
                 },
                 icon: isRunning
@@ -40,7 +40,7 @@ class MeditationPage extends StatelessWidget {
                 width: 32,
               ),
               TimerButton(
-                onClicked: button.stopTimer,
+                onClicked: timer.stopTimer,
                 icon: const Icon(
                   Icons.refresh,
                   color: Colors.white,
@@ -50,7 +50,11 @@ class MeditationPage extends StatelessWidget {
             ],
           )
         : TimerButton(
-            onClicked: button.startTimer,
+            onClicked: () {
+              if (timer.timeInSec != 1) {
+                timer.startTimer();
+              }
+            },
             icon: const Icon(
               Icons.play_arrow,
               color: Colors.white,
@@ -58,16 +62,23 @@ class MeditationPage extends StatelessWidget {
             ));
   }
 
-  Widget createTime(time) {
-    if (time == 0) {
+  Widget createTime(timeInSec, timer, time) {
+    if (timeInSec == 0) {
       return const Icon(
         Icons.done_rounded,
         color: Colors.greenAccent,
         size: 160,
       );
     }
+    if (timer == null && time == null) {
+      return const Icon(
+        Icons.timer,
+        color: Colors.white,
+        size: 128,
+      );
+    }
     return Text(
-      time.toString(),
+      timeInSec.toString(),
       style: const TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 64,
@@ -90,7 +101,7 @@ class MeditationPage extends StatelessWidget {
             backgroundColor: Colors.white,
           ),
           Center(
-            child: createTime(timer.timeInSec),
+            child: createTime(timer.timeInSec, timer.timer, timer.time),
           ),
         ],
       ),
