@@ -9,7 +9,7 @@ class HistoryPage extends StatelessWidget {
       backgroundColor: Colors.blue[200],
       appBar: AppBar(
         title: const Text(
-          'BREAK',
+          'HISTORY',
           style: TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.bold,

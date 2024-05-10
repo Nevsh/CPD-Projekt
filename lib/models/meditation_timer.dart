@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-class DropdownButtonTimer extends ChangeNotifier {
+class MeditationTimerModel extends ChangeNotifier {
   int? _time;
   int _timeInSec = 1;
   int _maxTime = 1;
@@ -23,7 +23,7 @@ class DropdownButtonTimer extends ChangeNotifier {
   }
 
   void startTimer() {
-    _timer = Timer.periodic(const Duration(milliseconds: 50), (_) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (_timeInSec > 0) {
         _timeInSec--;
       } else {

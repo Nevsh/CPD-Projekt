@@ -2,7 +2,7 @@ import 'package:cpd_project/widgets/meditation_timer_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../logic/meditation_timer.dart';
+import '../models/meditation_timer.dart';
 
 class MeditationPage extends StatelessWidget {
   const MeditationPage({super.key});
@@ -110,7 +110,7 @@ class MeditationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<DropdownButtonTimer>(
+    return Consumer<MeditationTimerModel>(
       builder: (context, value, child) => Scaffold(
         backgroundColor: Colors.teal[200],
         appBar: AppBar(
@@ -142,9 +142,10 @@ class MeditationPage extends StatelessWidget {
                     icon: const Icon(Icons.watch_later_outlined),
                     iconEnabledColor: Colors.teal[600],
                     style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
                     // underline: Container(
                     //   height: 2,
                     //   color: Colors.black,

@@ -126,16 +126,6 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        iconSize: 32,
-        selectedItemColor: Colors.blue,
-        selectedFontSize: 18,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.view_day), label: 'History'),
-        ],
-      ),
     );
   }
 }
