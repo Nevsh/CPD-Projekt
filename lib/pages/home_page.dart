@@ -3,6 +3,21 @@ import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+  final List categoryList = const [
+    'Meditation',
+    'Break',
+    'Exercise',
+    'Review',
+  ];
+
+  final List pagesList = const [
+    'meditation_page',
+    'break_page',
+    'exercise_page',
+    'review_page',
+    'history_page',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,7 +99,7 @@ class HomePage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-                      Navigator.pushNamed(context, '/meditation_page');
+                      Navigator.pushNamed(context, '/${pagesList[index]}');
                     },
                     child: Container(
                       padding: const EdgeInsets.symmetric(
@@ -95,6 +110,14 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         color: const Color(0xFFEFEFEF),
                       ),
+                      child: Center(
+                          child: Text(
+                        '${categoryList[index]}',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )),
                     ),
                   );
                 },

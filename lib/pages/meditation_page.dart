@@ -131,34 +131,49 @@ class MeditationPage extends StatelessWidget {
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: DropdownButton(
-                  // icon: const Icon(Icons.watch_later_outlined),
-                  iconEnabledColor: Colors.lightBlue,
-                  underline: Container(
-                    height: 2,
-                    color: Colors.black,
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    // border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(12),
                   ),
-                  hint: const Text('Wähle Dauer'),
-                  value: value.time,
-                  onChanged: value.timerSet,
-                  items: const [
-                    DropdownMenuItem(
-                      value: 1,
-                      child: Text('5 min'),
+                  child: DropdownButton(
+                    icon: const Icon(Icons.watch_later_outlined),
+                    iconEnabledColor: Colors.teal[600],
+                    style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                    // underline: Container(
+                    //   height: 2,
+                    //   color: Colors.black,
+                    // ),
+                    hint: const Text(
+                      'Wähle Dauer ',
+                      style: TextStyle(color: Colors.black38),
                     ),
-                    DropdownMenuItem(
-                      value: 10,
-                      child: Text('10 min'),
-                    ),
-                    DropdownMenuItem(
-                      value: 15,
-                      child: Text('15 min'),
-                    ),
-                    DropdownMenuItem(
-                      value: 30,
-                      child: Text('30 min'),
-                    ),
-                  ],
+                    value: value.time,
+                    onChanged: value.timerSet,
+                    items: const [
+                      DropdownMenuItem(
+                        value: 1,
+                        child: Text('5 min'),
+                      ),
+                      DropdownMenuItem(
+                        value: 10,
+                        child: Text('10 min'),
+                      ),
+                      DropdownMenuItem(
+                        value: 15,
+                        child: Text('15 min'),
+                      ),
+                      DropdownMenuItem(
+                        value: 30,
+                        child: Text('30 min'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
