@@ -62,7 +62,7 @@ class MeditationPage extends StatelessWidget {
             ));
   }
 
-  Widget createTime(timeInSec, timer, time) {
+  Widget createTime(timeInSec, timer, time, formatTime) {
     if (timeInSec == 0) {
       return const Icon(
         Icons.done_rounded,
@@ -78,10 +78,11 @@ class MeditationPage extends StatelessWidget {
       );
     }
     return Text(
-      timeInSec.toString(),
+      // timeInSec.toString(),
+      formatTime(timeInSec),
       style: const TextStyle(
         fontWeight: FontWeight.bold,
-        fontSize: 64,
+        fontSize: 48,
         color: Colors.white,
       ),
     );
@@ -101,7 +102,8 @@ class MeditationPage extends StatelessWidget {
             backgroundColor: Colors.white,
           ),
           Center(
-            child: createTime(timer.timeInSec, timer.timer, timer.time),
+            child: createTime(
+                timer.timeInSec, timer.timer, timer.time, timer.formatTime),
           ),
         ],
       ),
@@ -159,6 +161,14 @@ class MeditationPage extends StatelessWidget {
                     items: const [
                       DropdownMenuItem(
                         value: 1,
+                        child: Text('1 min'),
+                      ),
+                      DropdownMenuItem(
+                        value: 3,
+                        child: Text('3 min'),
+                      ),
+                      DropdownMenuItem(
+                        value: 5,
                         child: Text('5 min'),
                       ),
                       DropdownMenuItem(

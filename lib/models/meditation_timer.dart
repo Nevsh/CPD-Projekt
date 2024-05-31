@@ -9,8 +9,8 @@ class MeditationTimerModel extends ChangeNotifier {
   Timer? _timer;
 
   int? get time => _time;
-  int? get timeInSec => _timeInSec;
-  int? get maxTime => _maxTime;
+  int get timeInSec => _timeInSec;
+  int get maxTime => _maxTime;
   Timer? get timer => _timer;
 
   void timerSet(int? selectedTime) {
@@ -47,5 +47,21 @@ class MeditationTimerModel extends ChangeNotifier {
   void resetTimer() {
     _timeInSec = _maxTime;
     notifyListeners();
+  }
+
+  String formatTime(int seconds) {
+    // Berechne Stunden, Minuten und Sekunden
+    // int hours = seconds ~/ 3600;
+    int minutes = (seconds % 3600) ~/ 60;
+    int secs = seconds % 60;
+
+    // Formatiere die Werte als zweistellige Strings
+    // String hoursStr = hours.toString().padLeft(2, '0');
+    String minutesStr = minutes.toString().padLeft(2, '0');
+    String secondsStr = secs.toString().padLeft(2, '0');
+
+    // Setze die Werte im Format HH:MM:SS zusammen
+    // return '$hoursStr:$minutesStr:$secondsStr';
+    return '$minutesStr:$secondsStr';
   }
 }
