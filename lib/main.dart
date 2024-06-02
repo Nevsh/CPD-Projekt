@@ -1,15 +1,16 @@
-import 'package:cpd_project/pages/break_page.dart';
 import 'package:cpd_project/pages/exercise_page.dart';
 import 'package:cpd_project/pages/history_page.dart';
 import 'package:cpd_project/pages/home_page.dart';
 import 'package:cpd_project/pages/main_page.dart';
 import 'package:cpd_project/pages/meditation_page.dart';
+import 'package:cpd_project/pages/pomodoro_page.dart';
 import 'package:cpd_project/pages/review_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'models/home_navigation_bar.dart';
-import 'models/meditation_timer.dart';
+import 'models/home_navigation_bar_model.dart';
+import 'models/meditation_timer_model.dart';
+import 'models/pomodoro_timer_model.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => MeditationTimerModel()),
+        ChangeNotifierProvider(create: (context) => PomodoroTimerModel()),
         ChangeNotifierProvider(create: (context) => HomeNavigationBarModel()),
       ],
       child: MaterialApp(

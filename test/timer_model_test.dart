@@ -1,4 +1,4 @@
-import 'package:cpd_project/models/meditation_timer.dart';
+import 'package:cpd_project/models/meditation_timer_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

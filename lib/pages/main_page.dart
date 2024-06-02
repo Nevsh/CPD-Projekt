@@ -2,7 +2,7 @@ import 'package:cpd_project/pages/history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/home_navigation_bar.dart';
+import '../models/home_navigation_bar_model.dart';
 import 'home_page.dart';
 
 class MainPage extends StatelessWidget {
