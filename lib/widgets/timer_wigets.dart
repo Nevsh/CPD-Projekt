@@ -99,20 +99,26 @@ Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
   String formattedTime = timer.formatTime(timer.timeInSec);
   if (timer.timeInSec == 0) {
     if (!isPomodoroPage || !timer.focusSessionDone) {
-      return Icon(
-        Icons.done_rounded,
-        color: Colors.greenAccent,
-        // size: 160,
-        size: MediaQuery.of(context).size.width / 3,
+      return Stack(
+        fit: StackFit.expand,
+        children: [
+          isPomodoroPage
+              ? Image.asset("assets/pomodoro_80.png", scale: 0.75)
+              : Image.asset("assets/meditation_80.png", scale: 0.75),
+          Icon(
+            Icons.done_rounded,
+            color: Colors.greenAccent,
+            // size: 160,
+            size: MediaQuery.of(context).size.width / 3,
+          )
+        ],
       );
     }
   }
   if (timer.timer == null && timer.time == null) {
-    return Icon(
-      Icons.timer,
-      color: Colors.white,
-      size: MediaQuery.of(context).size.width / 3,
-    );
+    return isPomodoroPage
+        ? Image.asset("assets/pomodoro_80.png", scale: 0.75)
+        : Image.asset("assets/meditation_80.png", scale: 0.75);
   }
   return isPomodoroPage
       ? Text(
@@ -146,7 +152,6 @@ Widget createTimer(BuildContext context, dynamic timer, bool isPomodoroPage) {
       fit: StackFit.expand,
       children: [
         CircularProgressIndicator(
-          // value: (1 - timer.timeInSec / timer.maxTime) as double,
           value: timer.calcTimeProgress(),
           strokeWidth: 12,
           valueColor: const AlwaysStoppedAnimation(Colors.greenAccent),

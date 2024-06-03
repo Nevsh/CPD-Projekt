@@ -31,12 +31,13 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => HomeNavigationBarModel()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),
         home: const MainPage(),
         routes: {
           '/home_page': (context) => const HomePage(),
           '/meditation_page': (context) => const MeditationPage(),
-          '/break_page': (context) => const BreakPage(),
+          '/pomodoro_page': (context) => const PomodoroPage(),
           '/exercise_page': (context) => const ExercisePage(),
           '/review_page': (context) => const ReviewPage(),
           '/history_page': (context) => const HistoryPage(),

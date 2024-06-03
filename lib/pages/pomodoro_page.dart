@@ -5,25 +5,40 @@ import 'package:provider/provider.dart';
 import '../widgets/timer_dropdown_widget.dart';
 import '../widgets/timer_wigets.dart';
 
-class BreakPage extends StatelessWidget {
-  const BreakPage({super.key});
+class PomodoroPage extends StatelessWidget {
+  const PomodoroPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Consumer<PomodoroTimerModel>(
       builder: (context, value, child) => Scaffold(
         backgroundColor: Colors.red[200],
+        // appBar: AppBar(
+        //   title: const Text(
+        //     'POMODORO',
+        //     style: TextStyle(
+        //       fontSize: 32,
+        //       fontWeight: FontWeight.bold,
+        //       color: Colors.white,
+        //     ),
+        //   ),
+        //   centerTitle: true,
+        //   backgroundColor: Colors.red[600],
+        // ),
         appBar: AppBar(
-          title: const Text(
-            'POMODORO',
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+          backgroundColor: Colors.red[200],
+          leading: Padding(
+            padding:
+                EdgeInsets.only(left: MediaQuery.of(context).size.width / 24),
+            child: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+                size: 32,
+              ),
+              onPressed: () => Navigator.of(context).pop(),
             ),
           ),
-          centerTitle: true,
-          backgroundColor: Colors.red[600],
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

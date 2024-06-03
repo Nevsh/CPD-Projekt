@@ -14,6 +14,7 @@ class TimerModel extends ChangeNotifier {
       time = selectedTime;
       timeInSec = selectedTime * 60;
       maxTime = selectedTime * 60;
+      stopTimer();
       notifyListeners();
     }
   }

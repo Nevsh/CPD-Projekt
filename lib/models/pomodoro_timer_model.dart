@@ -28,6 +28,8 @@ class PomodoroTimerModel extends TimerModel {
       } else {
         _breakTime = 20 * 60;
       }
+      _focusSessionDone = false;
+      stopTimer();
       notifyListeners();
     }
   }

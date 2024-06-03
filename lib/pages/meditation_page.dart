@@ -13,17 +13,32 @@ class MeditationPage extends StatelessWidget {
     return Consumer<MeditationTimerModel>(
       builder: (context, value, child) => Scaffold(
         backgroundColor: Colors.teal[200],
+        // appBar: AppBar(
+        //   title: const Text(
+        //     'MEDITATION',
+        //     style: TextStyle(
+        //       fontSize: 32,
+        //       fontWeight: FontWeight.bold,
+        //       color: Colors.white,
+        //     ),
+        //   ),
+        //   centerTitle: true,
+        //   backgroundColor: Colors.teal[600],
+        // ),
         appBar: AppBar(
-          title: const Text(
-            'MEDITATION',
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+          backgroundColor: Colors.teal[200],
+          leading: Padding(
+            padding:
+                EdgeInsets.only(left: MediaQuery.of(context).size.width / 24),
+            child: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+                size: 32,
+              ),
+              onPressed: () => Navigator.of(context).pop(),
             ),
           ),
-          centerTitle: true,
-          backgroundColor: Colors.teal[600],
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
