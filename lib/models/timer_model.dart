@@ -8,6 +8,7 @@ class TimerModel extends ChangeNotifier {
   int timeInSec = 1;
   int maxTime = 1;
   Timer? timer;
+  bool dailySessionDone = false;
 
   void timerSet(int? selectedTime) {
     if (selectedTime is int) {
@@ -24,6 +25,7 @@ class TimerModel extends ChangeNotifier {
       if (timeInSec > 0) {
         timeInSec--;
       } else {
+        dailySessionDone = true;
         FlutterRingtonePlayer().playNotification();
         stopTimer(reset: false);
       }
@@ -49,6 +51,11 @@ class TimerModel extends ChangeNotifier {
 
   double calcTimeProgress() {
     return (1 - timeInSec / maxTime);
+  }
+
+  void setDailySessionDone() {
+    dailySessionDone = true;
+    notifyListeners();
   }
 
   String formatTime(int seconds) {

@@ -7,18 +7,6 @@ class ReviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepPurple[200],
-      // appBar: AppBar(
-      //   title: const Text(
-      //     'Review',
-      //     style: TextStyle(
-      //       fontSize: 32,
-      //       fontWeight: FontWeight.bold,
-      //       color: Colors.white,
-      //     ),
-      //   ),
-      //   centerTitle: true,
-      //   backgroundColor: Colors.yellow[600],
-      // ),
       appBar: AppBar(
         backgroundColor: Colors.deepPurple[200],
         leading: Padding(

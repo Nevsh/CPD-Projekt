@@ -13,18 +13,6 @@ class PomodoroPage extends StatelessWidget {
     return Consumer<PomodoroTimerModel>(
       builder: (context, value, child) => Scaffold(
         backgroundColor: Colors.red[200],
-        // appBar: AppBar(
-        //   title: const Text(
-        //     'POMODORO',
-        //     style: TextStyle(
-        //       fontSize: 32,
-        //       fontWeight: FontWeight.bold,
-        //       color: Colors.white,
-        //     ),
-        //   ),
-        //   centerTitle: true,
-        //   backgroundColor: Colors.red[600],
-        // ),
         appBar: AppBar(
           backgroundColor: Colors.red[200],
           leading: Padding(

@@ -40,6 +40,7 @@ class PomodoroTimerModel extends TimerModel {
       if (timeInSec > 0) {
         timeInSec--;
       } else {
+        dailySessionDone = true;
         FlutterRingtonePlayer().playNotification();
         if (_focusSessionDone) {
           stopTimer(reset: false);

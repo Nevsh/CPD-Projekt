@@ -13,18 +13,6 @@ class MeditationPage extends StatelessWidget {
     return Consumer<MeditationTimerModel>(
       builder: (context, value, child) => Scaffold(
         backgroundColor: Colors.teal[200],
-        // appBar: AppBar(
-        //   title: const Text(
-        //     'MEDITATION',
-        //     style: TextStyle(
-        //       fontSize: 32,
-        //       fontWeight: FontWeight.bold,
-        //       color: Colors.white,
-        //     ),
-        //   ),
-        //   centerTitle: true,
-        //   backgroundColor: Colors.teal[600],
-        // ),
         appBar: AppBar(
           backgroundColor: Colors.teal[200],
           leading: Padding(

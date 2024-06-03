@@ -7,18 +7,6 @@ class ExercisePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueGrey[300],
-      // appBar: AppBar(
-      //   title: const Text(
-      //     'EXERCISE',
-      //     style: TextStyle(
-      //       fontSize: 32,
-      //       fontWeight: FontWeight.bold,
-      //       color: Colors.white,
-      //     ),
-      //   ),
-      //   centerTitle: true,
-      //   backgroundColor: Colors.blueGrey[600],
-      // ),
       appBar: AppBar(
         backgroundColor: Colors.blueGrey[300],
         leading: Padding(
