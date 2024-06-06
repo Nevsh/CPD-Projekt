@@ -3,53 +3,16 @@ import 'package:provider/provider.dart';
 
 import '../models/meditation_timer_model.dart';
 import '../models/pomodoro_timer_model.dart';
+import '../models/review_model.dart';
 
 class StreakOverviewWidget extends StatelessWidget {
   const StreakOverviewWidget({super.key});
-
-  Widget createIcon(BuildContext context, String asset, bool dailySessionDone) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width / 8,
-      child: dailySessionDone
-          ? Stack(
-              children: [
-                Image.asset(asset),
-                Icon(
-                  Icons.check_circle_outline_rounded,
-                  color: Colors.greenAccent,
-                  size: MediaQuery.of(context).size.width / 8,
-                )
-              ],
-            )
-          : Image.asset(asset),
-    );
-  }
-
-  Widget createStreakCounter(BuildContext context, int streakCount) {
-    return Container(
-      padding: const EdgeInsets.all(3),
-      width: MediaQuery.of(context).size.width / 8,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.black26,
-      ),
-      child: Center(
-        child: Text(
-          streakCount.toString(),
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
     final medModel = Provider.of<MeditationTimerModel>(context);
     final pomModel = Provider.of<PomodoroTimerModel>(context);
+    final revModel = Provider.of<ReviewModel>(context);
 
     return Padding(
       padding: const EdgeInsets.only(
@@ -75,7 +38,8 @@ class StreakOverviewWidget extends StatelessWidget {
                 createIcon(context, "assets/pomodoro_80.png",
                     pomModel.dailySessionDone),
                 createIcon(context, "assets/exercise_80.png", false),
-                createIcon(context, "assets/review_80.png", false),
+                createIcon(
+                    context, "assets/review_80.png", revModel.dailySessionDone),
               ],
             ),
             Row(
@@ -92,4 +56,43 @@ class StreakOverviewWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget createIcon(BuildContext context, String asset, bool dailySessionDone) {
+  return SizedBox(
+    width: MediaQuery.of(context).size.width / 8,
+    child: dailySessionDone
+        ? Stack(
+            children: [
+              Image.asset(asset),
+              Icon(
+                Icons.check_circle_outline_rounded,
+                color: Colors.greenAccent,
+                size: MediaQuery.of(context).size.width / 8,
+              )
+            ],
+          )
+        : Image.asset(asset),
+  );
+}
+
+Widget createStreakCounter(BuildContext context, int streakCount) {
+  return Container(
+    padding: const EdgeInsets.all(3),
+    width: MediaQuery.of(context).size.width / 8,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+      color: Colors.black26,
+    ),
+    child: Center(
+      child: Text(
+        streakCount.toString(),
+        style: const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      ),
+    ),
+  );
 }

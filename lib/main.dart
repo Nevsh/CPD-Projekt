@@ -1,3 +1,4 @@
+import 'package:cpd_project/models/review_model.dart';
 import 'package:cpd_project/pages/exercise_page.dart';
 import 'package:cpd_project/pages/history_page.dart';
 import 'package:cpd_project/pages/home_page.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => MeditationTimerModel()),
         ChangeNotifierProvider(create: (context) => PomodoroTimerModel()),
+        ChangeNotifierProvider(create: (context) => ReviewModel()),
         ChangeNotifierProvider(create: (context) => HomeNavigationBarModel()),
       ],
       child: MaterialApp(
