@@ -11,7 +11,7 @@ class PomodoroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<PomodoroTimerModel>(
-      builder: (context, value, child) => Scaffold(
+      builder: (context, pomModel, child) => Scaffold(
         backgroundColor: Colors.red[200],
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -49,26 +49,30 @@ class PomodoroPage extends StatelessWidget {
                       child: Text('90 / 20 min'),
                     ),
                   ],
-                  value: value.time,
-                  onChanged: value.timerSet,
+                  value: pomModel.time,
+                  onChanged: pomModel.timerSet,
                   hintText: 'Choose duration: work / break ',
                   icon: const Icon(Icons.watch_later_outlined),
                 ),
               ),
             ),
             Text(
-              value.focusSessionDone || value.timeInSec == 0 ? 'BREAK' : 'WORK',
+              pomModel.focusSessionDone ||
+                      pomModel.timeInSec == 0 && pomModel.inputIsSet()
+                  ? 'BREAK'
+                  : 'WORK',
               style: TextStyle(
                   fontSize: 48,
                   fontWeight: FontWeight.bold,
-                  color: value.focusSessionDone || value.timeInSec == 0
+                  color: pomModel.focusSessionDone ||
+                          pomModel.timeInSec == 0 && pomModel.inputIsSet()
                       ? Colors.blue[900]
                       : Colors.red[900]),
             ),
-            createTimer(context, value, true),
-            createButton(value, Colors.red[600]),
+            createTimer(context, pomModel, true),
+            createButton(pomModel, Colors.red[600]),
             Text(
-              'Session: ${value.session}',
+              'Session: ${pomModel.session}',
               style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,

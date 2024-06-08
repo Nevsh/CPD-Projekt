@@ -11,7 +11,7 @@ class MeditationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<MeditationTimerModel>(
-      builder: (context, value, child) => Scaffold(
+      builder: (context, medModel, child) => Scaffold(
         backgroundColor: Colors.teal[200],
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -61,15 +61,15 @@ class MeditationPage extends StatelessWidget {
                       child: Text('30 min'),
                     ),
                   ],
-                  value: value.time,
-                  onChanged: value.timerSet,
+                  value: medModel.time,
+                  onChanged: medModel.timerSet,
                   hintText: 'Choose duration: ',
                   icon: const Icon(Icons.watch_later_outlined),
                 ),
               ),
             ),
-            createTimer(context, value, false),
-            createButton(value, Colors.teal[600]),
+            createTimer(context, medModel, false),
+            createButton(medModel, Colors.teal[600]),
           ],
         ),
       ),

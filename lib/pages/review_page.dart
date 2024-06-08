@@ -1,5 +1,6 @@
 import 'package:cpd_project/widgets/streak_overview_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../models/exercise_model.dart';
@@ -15,6 +16,9 @@ class ReviewPage extends StatelessWidget {
     final medModel = Provider.of<MeditationTimerModel>(context);
     final pomModel = Provider.of<PomodoroTimerModel>(context);
     final exModel = Provider.of<ExerciseModel>(context);
+
+    final String formattedDate =
+        DateFormat("dd.MM.yyyy").format(DateTime.now());
 
     return Consumer<ReviewModel>(
       builder: (context, revModel, child) => Scaffold(
@@ -227,15 +231,21 @@ class ReviewPage extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "Completed",
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.deepPurple),
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "Completed",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.deepPurple),
+                            ),
+                          ),
+                          Text(formattedDate),
+                        ],
                       ),
                       Flexible(
                         child: Container(
