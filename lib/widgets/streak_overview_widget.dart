@@ -1,3 +1,4 @@
+import 'package:cpd_project/models/exercise_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,6 +13,7 @@ class StreakOverviewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final medModel = Provider.of<MeditationTimerModel>(context);
     final pomModel = Provider.of<PomodoroTimerModel>(context);
+    final exModel = Provider.of<ExerciseModel>(context);
     final revModel = Provider.of<ReviewModel>(context);
 
     return Padding(
@@ -37,7 +39,8 @@ class StreakOverviewWidget extends StatelessWidget {
                     medModel.dailySessionDone),
                 createIcon(context, "assets/pomodoro_80.png",
                     pomModel.dailySessionDone),
-                createIcon(context, "assets/exercise_80.png", false),
+                createIcon(context, "assets/exercise_80.png",
+                    exModel.dailySessionDone),
                 createIcon(
                     context, "assets/review_80.png", revModel.dailySessionDone),
               ],

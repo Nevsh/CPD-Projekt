@@ -14,7 +14,7 @@ class PomodoroPage extends StatelessWidget {
       builder: (context, value, child) => Scaffold(
         backgroundColor: Colors.red[200],
         appBar: AppBar(
-          backgroundColor: Colors.red[200],
+          backgroundColor: Colors.transparent,
           leading: Padding(
             padding:
                 EdgeInsets.only(left: MediaQuery.of(context).size.width / 24),
@@ -52,6 +52,7 @@ class PomodoroPage extends StatelessWidget {
                   value: value.time,
                   onChanged: value.timerSet,
                   hintText: 'Choose duration: work / break ',
+                  icon: const Icon(Icons.watch_later_outlined),
                 ),
               ),
             ),

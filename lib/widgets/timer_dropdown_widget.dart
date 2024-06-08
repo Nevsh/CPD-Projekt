@@ -5,13 +5,16 @@ class TimerDropdown extends StatelessWidget {
   final int? value;
   final ValueChanged<int?> onChanged;
   final String hintText;
+  final Icon icon;
 
-  const TimerDropdown(
-      {super.key,
-      required this.items,
-      required this.value,
-      required this.onChanged,
-      required this.hintText});
+  const TimerDropdown({
+    super.key,
+    required this.items,
+    required this.value,
+    required this.onChanged,
+    required this.hintText,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,8 @@ class TimerDropdown extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: DropdownButton<int>(
-        icon: const Icon(Icons.watch_later_outlined),
+        isExpanded: true,
+        icon: icon,
         iconEnabledColor: Colors.black,
         style: const TextStyle(
           fontSize: 24,

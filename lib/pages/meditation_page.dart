@@ -14,7 +14,7 @@ class MeditationPage extends StatelessWidget {
       builder: (context, value, child) => Scaffold(
         backgroundColor: Colors.teal[200],
         appBar: AppBar(
-          backgroundColor: Colors.teal[200],
+          backgroundColor: Colors.transparent,
           leading: Padding(
             padding:
                 EdgeInsets.only(left: MediaQuery.of(context).size.width / 24),
@@ -64,6 +64,7 @@ class MeditationPage extends StatelessWidget {
                   value: value.time,
                   onChanged: value.timerSet,
                   hintText: 'Choose duration: ',
+                  icon: const Icon(Icons.watch_later_outlined),
                 ),
               ),
             ),

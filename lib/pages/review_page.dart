@@ -2,6 +2,7 @@ import 'package:cpd_project/widgets/streak_overview_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../models/exercise_model.dart';
 import '../models/meditation_timer_model.dart';
 import '../models/pomodoro_timer_model.dart';
 import '../models/review_model.dart';
@@ -13,13 +14,14 @@ class ReviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final medModel = Provider.of<MeditationTimerModel>(context);
     final pomModel = Provider.of<PomodoroTimerModel>(context);
+    final exModel = Provider.of<ExerciseModel>(context);
 
     return Consumer<ReviewModel>(
       builder: (context, revModel, child) => Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.deepPurple[200],
         appBar: AppBar(
-          backgroundColor: Colors.deepPurple[200],
+          backgroundColor: Colors.transparent,
           leading: Padding(
             padding:
                 EdgeInsets.only(left: MediaQuery.of(context).size.width / 24),
@@ -249,8 +251,8 @@ class ReviewPage extends StatelessWidget {
                                   medModel.dailySessionDone),
                               createIcon(context, "assets/pomodoro_80.png",
                                   pomModel.dailySessionDone),
-                              createIcon(
-                                  context, "assets/exercise_80.png", false),
+                              createIcon(context, "assets/exercise_80.png",
+                                  exModel.dailySessionDone),
                               createIcon(context, "assets/review_80.png",
                                   revModel.dailySessionDone),
                             ],

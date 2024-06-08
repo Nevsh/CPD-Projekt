@@ -9,6 +9,7 @@ import 'package:cpd_project/pages/review_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'models/exercise_model.dart';
 import 'models/home_navigation_bar_model.dart';
 import 'models/meditation_timer_model.dart';
 import 'models/pomodoro_timer_model.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => MeditationTimerModel()),
         ChangeNotifierProvider(create: (context) => PomodoroTimerModel()),
+        ChangeNotifierProvider(create: (context) => ExerciseModel()),
         ChangeNotifierProvider(create: (context) => ReviewModel()),
         ChangeNotifierProvider(create: (context) => HomeNavigationBarModel()),
       ],

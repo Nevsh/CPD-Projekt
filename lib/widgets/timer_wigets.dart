@@ -29,7 +29,7 @@ class TimerButton extends StatelessWidget {
   }
 }
 
-Widget createButton(timer, Color? buttonColor) {
+Widget createButton(dynamic timer, Color? buttonColor) {
   final isRunning = timer.timer == null ? false : timer.timer!.isActive;
   final isCompleted = timer.timeInSec == timer.maxTime || timer.timeInSec == 0;
 
@@ -74,13 +74,13 @@ Widget createButton(timer, Color? buttonColor) {
         )
       : TimerButton(
           onClicked: () {
-            if (timer.timeInSec > 1) {
+            if (timer.timeInSec > 0) {
               timer.startTimer();
-            } else if (timer.timeInSec == 0) {
+            } else if (timer.timeInSec == 0 && timer.inputIsSet()) {
               timer.stopTimer(reset: true);
             }
           },
-          icon: timer.timeInSec == 0
+          icon: timer.timeInSec == 0 && timer.inputIsSet()
               ? const Icon(
                   Icons.refresh,
                   color: Colors.white,
@@ -107,7 +107,7 @@ Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
               : Image.asset("assets/meditation_80.png", scale: 0.75),
           Icon(
             Icons.done_rounded,
-            color: Colors.greenAccent,
+            color: timer.inputIsSet() ? Colors.greenAccent : Colors.transparent,
             // size: 160,
             size: MediaQuery.of(context).size.width / 3,
           )

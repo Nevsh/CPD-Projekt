@@ -43,15 +43,6 @@ void main() {
       expect(meditationTimer.timer?.isActive, isFalse);
     });
 
-    test('resetTimer resets timeInSec to maxTime', () {
-      meditationTimer.timerSet(1);
-      meditationTimer.startTimer();
-      meditationTimer.stopTimer(reset: false);
-      meditationTimer.resetTimer();
-
-      expect(meditationTimer.timeInSec, meditationTimer.maxTime);
-    });
-
     test('formatTime formats time correctly', () {
       expect(meditationTimer.formatTime(0), '00:00');
       expect(meditationTimer.formatTime(59), '00:59');
