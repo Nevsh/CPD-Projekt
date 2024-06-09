@@ -42,10 +42,10 @@ class StreakOverviewWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              createStreakCounter(context, 1),
-              createStreakCounter(context, 2),
-              createStreakCounter(context, 0),
-              createStreakCounter(context, 7),
+              createStreakCounter(context, medModel.streakCounter),
+              createStreakCounter(context, pomModel.streakCounter),
+              createStreakCounter(context, exModel.streakCounter),
+              createStreakCounter(context, revModel.streakCounter),
             ],
           ),
         ],

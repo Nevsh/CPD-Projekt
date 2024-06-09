@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-abstract class TimerModel extends ChangeNotifier {
+import '../mixins/streak_counter_mixin.dart';
+
+abstract class TimerModel extends ChangeNotifier with StreakCounterMixin {
   int? time;
   int timeInSec = 0;
   int maxTime = 0;

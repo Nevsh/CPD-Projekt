@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class ReviewModel extends ChangeNotifier {
+import '../mixins/streak_counter_mixin.dart';
+
+class ReviewModel extends ChangeNotifier with StreakCounterMixin {
   String _mood = 'empty';
   String _savedMood = 'empty';
   String _userNote = '';
