@@ -1,7 +1,12 @@
+import 'package:cpd_project/models/exercise_model.dart';
+import 'package:cpd_project/models/pomodoro_timer_model.dart';
+import 'package:cpd_project/models/timer_model.dart';
 import 'package:flutter/material.dart';
 
 class TimerDropdown extends StatelessWidget {
-  final List<DropdownMenuItem<int>> items;
+  final TimerModel timerModel;
+  final List<int> optList;
+  final String unit;
   final int? value;
   final ValueChanged<int?> onChanged;
   final String hintText;
@@ -9,7 +14,9 @@ class TimerDropdown extends StatelessWidget {
 
   const TimerDropdown({
     super.key,
-    required this.items,
+    required this.timerModel,
+    required this.optList,
+    required this.unit,
     required this.value,
     required this.onChanged,
     required this.hintText,
@@ -18,6 +25,13 @@ class TimerDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<int> items;
+    if (timerModel is ExerciseModel && unit == 'cycles') {
+      items = optList;
+    } else {
+      items = timerModel.durationList;
+    }
+
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
@@ -39,7 +53,16 @@ class TimerDropdown extends StatelessWidget {
         ),
         value: value,
         onChanged: onChanged,
-        items: items,
+        items: items.asMap().entries.map(
+          (entry) {
+            return DropdownMenuItem<int>(
+              value: entry.value,
+              child: timerModel is PomodoroTimerModel
+                  ? Text('${entry.value} / ${optList[entry.key]} $unit')
+                  : Text('${entry.value} $unit'),
+            );
+          },
+        ).toList(),
       ),
     );
   }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ReviewModel extends ChangeNotifier {
-  String _mood = "empty";
-  String _savedMood = "empty";
-  String _userNote = "";
+  String _mood = 'empty';
+  String _savedMood = 'empty';
+  String _userNote = '';
   bool dailySessionDone = false;
   final TextEditingController _textController = TextEditingController();
 

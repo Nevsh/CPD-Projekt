@@ -1,14 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 
-class TimerModel extends ChangeNotifier {
+abstract class TimerModel extends ChangeNotifier {
   int? time;
   int timeInSec = 0;
   int maxTime = 0;
   Timer? timer;
   bool dailySessionDone = false;
+
+  List<int> get durationList;
 
   void timerSet(int? selectedTime) {
     if (selectedTime is int) {
@@ -20,22 +21,16 @@ class TimerModel extends ChangeNotifier {
     }
   }
 
-  void startTimer() {
-    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
-      if (timeInSec > 0) {
-        timeInSec--;
-      } else {
-        dailySessionDone = true;
-        FlutterRingtonePlayer().playNotification();
-        stopTimer(reset: false);
-      }
-      notifyListeners();
-    });
+  void startTimer();
+
+  void resetTimer() {
+    timeInSec = maxTime;
+    notifyListeners();
   }
 
   void stopTimer({bool reset = true}) {
     if (reset) {
-      _resetTimer();
+      resetTimer();
     }
 
     if (timer is Timer) {
@@ -43,11 +38,6 @@ class TimerModel extends ChangeNotifier {
       timer = null;
       notifyListeners();
     }
-  }
-
-  void _resetTimer() {
-    timeInSec = maxTime;
-    notifyListeners();
   }
 
   double calcTimeProgress() {

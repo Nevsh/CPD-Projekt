@@ -2,16 +2,22 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:cpd_project/models/timer_model.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 
 class ExerciseModel extends TimerModel {
-  String _userInput = "";
-  String _randomExercise = "Exercise";
+  String _userInput = '';
+  String _randomExercise = 'Exercise';
   int? _numOfCycles;
   bool _reminderIsActivated = false;
   final List<String> _exerciseList = [];
   final TextEditingController _textController = TextEditingController();
+  final List<int> _durationList = const [1, 3, 5, 10, 15, 30, 45, 60, 90, 120];
+  final List<int> _cyclesList = const [1, 2, 3, 4, 5];
+
+  @override
+  List<int> get durationList => _durationList;
+  List<int> get cyclesList => _cyclesList;
 
   String get userInput => _userInput;
   String get randomExercise => _randomExercise;

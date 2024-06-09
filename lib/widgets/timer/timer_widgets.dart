@@ -98,13 +98,13 @@ Widget createButton(dynamic timer, Color? buttonColor) {
 Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
   String formattedTime = timer.formatTime(timer.timeInSec);
   if (timer.timeInSec == 0) {
-    if (!isPomodoroPage || !timer.focusSessionDone) {
+    if (!isPomodoroPage || timer.focusSessionDone) {
       return Stack(
         fit: StackFit.expand,
         children: [
           isPomodoroPage
-              ? Image.asset("assets/pomodoro_80.png", scale: 0.75)
-              : Image.asset("assets/meditation_80.png", scale: 0.75),
+              ? Image.asset('assets/pomodoro_80.png', scale: 0.75)
+              : Image.asset('assets/meditation_80.png', scale: 0.75),
           Icon(
             Icons.done_rounded,
             color: timer.inputIsSet() ? Colors.greenAccent : Colors.transparent,
@@ -117,8 +117,8 @@ Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
   }
   if (timer.timer == null && timer.time == null) {
     return isPomodoroPage
-        ? Image.asset("assets/pomodoro_80.png", scale: 0.75)
-        : Image.asset("assets/meditation_80.png", scale: 0.75);
+        ? Image.asset('assets/pomodoro_80.png', scale: 0.75)
+        : Image.asset('assets/meditation_80.png', scale: 0.75);
   }
   return isPomodoroPage
       ? Text(

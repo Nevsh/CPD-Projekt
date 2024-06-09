@@ -15,10 +15,7 @@ import 'models/meditation_timer_model.dart';
 import 'models/pomodoro_timer_model.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => MeditationTimerModel(),
-    child: const MyApp(),
-  ));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
