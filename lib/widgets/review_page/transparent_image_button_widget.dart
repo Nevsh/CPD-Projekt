@@ -28,7 +28,7 @@ class TransparentImageButtonWidget extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       onPressed: onPressed,
-      child: reviewModel.mood == mood
+      child: reviewModel.chosenMood == mood
           ? Image.asset(imagePath)
           : Opacity(
               opacity: 0.6,

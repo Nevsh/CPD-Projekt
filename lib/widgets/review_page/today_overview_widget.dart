@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import '../../models/exercise_model.dart';
-import '../../models/meditation_timer_model.dart';
-import '../../models/pomodoro_timer_model.dart';
+import '../../models/activity.dart';
 import '../../models/review_model.dart';
 import '../home_page/streak_overview_widget.dart';
 
@@ -14,13 +12,17 @@ class TodayOverviewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final medModel = Provider.of<MeditationTimerModel>(context);
-    final pomModel = Provider.of<PomodoroTimerModel>(context);
-    final exModel = Provider.of<ExerciseModel>(context);
+    // final medModel = Provider.of<MeditationTimerModel>(context);
+    // final pomModel = Provider.of<PomodoroTimerModel>(context);
+    // final exModel = Provider.of<ExerciseModel>(context);
     final revModel = Provider.of<ReviewModel>(context);
+    // final actModel = Provider.of<ActivityModel>(context);
 
-    final String formattedDate =
-        DateFormat('dd.MM.yyyy').format(DateTime.now());
+    Activity? activity = revModel.activity;
+    final String formattedDate = activity != null
+        ? DateFormat('dd.MM.yyyy')
+            .format(DateTime.parse(revModel.activity!.date))
+        : "error";
 
     return Flexible(
       child: Container(
@@ -58,13 +60,13 @@ class TodayOverviewWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     createIcon(context, 'assets/meditation_80.png',
-                        medModel.dailySessionDone),
+                        activity != null ? activity.meditation : false),
                     createIcon(context, 'assets/pomodoro_80.png',
-                        pomModel.dailySessionDone),
+                        activity != null ? activity.pomodoro : false),
                     createIcon(context, 'assets/exercise_80.png',
-                        exModel.dailySessionDone),
+                        activity != null ? activity.exercise : false),
                     createIcon(context, 'assets/review_80.png',
-                        revModel.dailySessionDone),
+                        activity != null ? activity.review : false),
                   ],
                 ),
               ),
@@ -98,7 +100,10 @@ class TodayOverviewWidget extends StatelessWidget {
                             heading(
                                 'Note', subHeading3, Colors.deepPurple[400]),
                             Text(
-                              revModel.userNote,
+                              // revModel.userNote,
+                              activity != null
+                                  ? activity.note
+                                  : 'Fehler: activity null',
                               style: const TextStyle(fontSize: 13),
                             ),
                           ],
@@ -108,7 +113,8 @@ class TodayOverviewWidget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 8),
                       child: Image.asset(
-                        'assets/${revModel.savedMood}_96.png',
+                        // 'assets/${revModel.savedMood}_96.png',
+                        'assets/${activity != null ? activity.rating : 'empty'}_96.png',
                         // height: 60,
                       ),
                     ),

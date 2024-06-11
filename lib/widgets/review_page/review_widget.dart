@@ -124,11 +124,8 @@ class ReviewWidget extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: ElevatedButton(
               onPressed: () {
-                revModel.userNote = revModel.textController.text;
-                revModel.savedMood = revModel.mood;
-                if (revModel.mood != 'empty') {
-                  revModel.setDailySessionDone();
-                }
+                revModel.saveReview(
+                    revModel.chosenMood, revModel.textController.text);
               },
               style: ButtonStyle(
                 backgroundColor:

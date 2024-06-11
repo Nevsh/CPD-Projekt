@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cpd_project/models/review_model.dart';
 import 'package:cpd_project/models/timer_model.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 
@@ -21,14 +22,17 @@ class MeditationTimerModel extends TimerModel {
   }
 
   @override
-  void startTimer() {
+  void startTimer(ReviewModel revModel) {
     notifyListeners();
     timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
       if (timeInSec > 0) {
         timeInSec--;
         if (timeInSec == 0) {
-          dailySessionDone = true;
+          // saveModelData();
+          // dailySessionDone = true;
           FlutterRingtonePlayer().playNotification();
+          revModel.medDailySessionDone = true;
+          // context.read<ReviewModel>().medDailySessionDone = true;
           stopTimer(reset: false);
         }
       }
@@ -41,4 +45,21 @@ class MeditationTimerModel extends TimerModel {
     timeInSec = maxTime;
     notifyListeners();
   }
+
+  // void loadModelData() async {
+  //   print("load med counter");
+  //   streakCounter = await HiveService.getStreakCounter('meditation_streak');
+  //   dailySessionDone = await HiveService.getDailySessionDone('meditation_done');
+  //   notifyListeners();
+  // }
+
+  // void saveModelData() async {
+  //   if (!dailySessionDone) {
+  //     print("save and inc med counter");
+  //     streakCounter++;
+  //     await HiveService.saveStreakCounter('meditation_streak', streakCounter);
+  //     await HiveService.saveDailySessionDone(
+  //         'meditation_done', dailySessionDone);
+  //   }
+  // }
 }

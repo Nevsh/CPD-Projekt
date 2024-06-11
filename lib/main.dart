@@ -7,14 +7,30 @@ import 'package:cpd_project/pages/meditation_page.dart';
 import 'package:cpd_project/pages/pomodoro_page.dart';
 import 'package:cpd_project/pages/review_page.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
+import 'models/activity.dart';
+import 'models/activity_model.dart';
 import 'models/exercise_model.dart';
+import 'models/history_model.dart';
 import 'models/home_navigation_bar_model.dart';
 import 'models/meditation_timer_model.dart';
 import 'models/pomodoro_timer_model.dart';
 
-void main() {
+Future<void> main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(ActivityAdapter());
+
+  // var box = await Hive.openBox('activityBox');
+  // await box.deleteFromDisk();
+  // var box2 = await Hive.openBox('streakBox');
+  // await box2.deleteFromDisk();
+  // var box3 = await Hive.openBox('dailySessionDoneBox');
+  // await box3.deleteFromDisk();
+
+  // print('Datenbank wurde gelöscht');
+
   runApp(const MyApp());
 }
 
@@ -25,10 +41,36 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => MeditationTimerModel()),
-        ChangeNotifierProvider(create: (context) => PomodoroTimerModel()),
-        ChangeNotifierProvider(create: (context) => ExerciseModel()),
-        ChangeNotifierProvider(create: (context) => ReviewModel()),
+        ChangeNotifierProvider(create: (context) {
+          return ActivityModel();
+        }),
+        ChangeNotifierProvider(create: (context) {
+          final model = MeditationTimerModel();
+          // model.loadModelData();
+          return model;
+        }),
+        ChangeNotifierProvider(create: (context) {
+          final model = PomodoroTimerModel();
+          // model.loadModelData();
+          return model;
+        }),
+        ChangeNotifierProvider(create: (context) {
+          final model = ExerciseModel();
+          // model.loadModelData();
+          model.loadExercises();
+          return model;
+        }),
+        ChangeNotifierProvider(create: (context) {
+          final model = ReviewModel();
+          // model.loadModelData(context);
+          model.loadData();
+          return model;
+        }),
+        ChangeNotifierProvider(create: (context) {
+          final model = HistoryModel();
+          // model.loadActivity();
+          return model;
+        }),
         ChangeNotifierProvider(create: (context) => HomeNavigationBarModel()),
       ],
       child: MaterialApp(

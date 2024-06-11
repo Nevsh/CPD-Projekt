@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/meditation_timer_model.dart';
+import '../models/review_model.dart';
 import '../widgets/timer/timer_dropdown_widget.dart';
 
 class MeditationPage extends StatelessWidget {
@@ -11,6 +12,7 @@ class MeditationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final revModel = Provider.of<ReviewModel>(context);
     return Consumer<MeditationTimerModel>(
       builder: (context, medModel, child) => Scaffold(
         backgroundColor: Colors.teal[200],
@@ -32,7 +34,7 @@ class MeditationPage extends StatelessWidget {
                   icon: const Icon(Icons.watch_later_outlined),
                 ),
                 createTimer(context, medModel, false),
-                createButton(medModel, Colors.teal[600]),
+                createButton(revModel, medModel, Colors.teal[600]),
               ],
             ),
           ),

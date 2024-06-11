@@ -1,15 +1,14 @@
 import 'dart:async';
 
+import 'package:cpd_project/models/review_model.dart';
 import 'package:flutter/material.dart';
 
-import '../mixins/streak_counter_mixin.dart';
-
-abstract class TimerModel extends ChangeNotifier with StreakCounterMixin {
+abstract class TimerModel extends ChangeNotifier {
   int? time;
   int timeInSec = 0;
   int maxTime = 0;
   Timer? timer;
-  bool dailySessionDone = false;
+  // bool dailySessionDone = false;
 
   List<int> get durationList;
 
@@ -23,7 +22,7 @@ abstract class TimerModel extends ChangeNotifier with StreakCounterMixin {
     }
   }
 
-  void startTimer();
+  void startTimer(ReviewModel revModel);
 
   void resetTimer() {
     timeInSec = maxTime;
@@ -46,10 +45,10 @@ abstract class TimerModel extends ChangeNotifier with StreakCounterMixin {
     return inputIsSet() ? (1 - timeInSec / maxTime) : 0;
   }
 
-  void setDailySessionDone() {
-    dailySessionDone = true;
-    notifyListeners();
-  }
+  // void setDailySessionDone() {
+  //   dailySessionDone = true;
+  //   notifyListeners();
+  // }
 
   bool inputIsSet() {
     return time != null;

@@ -1,3 +1,5 @@
+import 'package:cpd_project/models/review_model.dart';
+import 'package:cpd_project/models/timer_model.dart';
 import 'package:flutter/material.dart';
 
 class TimerButton extends StatelessWidget {
@@ -29,7 +31,8 @@ class TimerButton extends StatelessWidget {
   }
 }
 
-Widget createButton(dynamic timer, Color? buttonColor) {
+Widget createButton(
+    ReviewModel revModel, TimerModel timer, Color? buttonColor) {
   final isRunning = timer.timer == null ? false : timer.timer!.isActive;
   final isCompleted = timer.timeInSec == timer.maxTime || timer.timeInSec == 0;
 
@@ -42,7 +45,7 @@ Widget createButton(dynamic timer, Color? buttonColor) {
                 if (isRunning) {
                   timer.stopTimer(reset: false);
                 } else {
-                  timer.startTimer();
+                  timer.startTimer(revModel);
                 }
               },
               icon: isRunning
@@ -75,7 +78,7 @@ Widget createButton(dynamic timer, Color? buttonColor) {
       : TimerButton(
           onClicked: () {
             if (timer.timeInSec > 0) {
-              timer.startTimer();
+              timer.startTimer(revModel);
             } else if (timer.timeInSec == 0 && timer.inputIsSet()) {
               timer.stopTimer(reset: true);
             }

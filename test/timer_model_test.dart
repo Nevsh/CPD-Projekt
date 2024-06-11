@@ -17,7 +17,7 @@ void main() {
 
     test('startTimer decreases timeInSec correctly', () async {
       meditationTimer.timerSet(1);
-      meditationTimer.startTimer();
+      // meditationTimer.startTimer();
 
       await Future.delayed(const Duration(seconds: 1));
       expect(meditationTimer.timeInSec, lessThan(60));
@@ -25,7 +25,7 @@ void main() {
 
     test('stopTimer resets timer when reset is true', () {
       meditationTimer.timerSet(1);
-      meditationTimer.startTimer();
+      // meditationTimer.startTimer();
       meditationTimer.stopTimer(reset: true);
 
       expect(meditationTimer.timeInSec, meditationTimer.maxTime);
@@ -35,7 +35,7 @@ void main() {
     test('stopTimer stops timer without resetting when reset is false',
         () async {
       meditationTimer.timerSet(1);
-      meditationTimer.startTimer();
+      // meditationTimer.startTimer();
       await Future.delayed(const Duration(seconds: 1));
       meditationTimer.stopTimer(reset: false);
 

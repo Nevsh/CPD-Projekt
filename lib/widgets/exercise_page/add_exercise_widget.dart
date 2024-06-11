@@ -105,10 +105,16 @@ class AddExerciseWidget extends StatelessWidget {
                               style: const TextStyle(fontSize: 18),
                             ),
                             IconButton(
-                              onPressed: () {
-                                exModel.removeExercise(index);
-                              },
-                              icon: const Icon(Icons.clear_rounded),
+                              onPressed: exModel.reminderIsActivated == false
+                                  ? () {
+                                      exModel.removeExercise(index);
+                                    }
+                                  : null,
+                              icon: exModel.reminderIsActivated == false
+                                  ? const Icon(Icons.clear_rounded)
+                                  : const Opacity(
+                                      opacity: 0.6,
+                                      child: Icon(Icons.clear_rounded)),
                             ),
                           ],
                         ),

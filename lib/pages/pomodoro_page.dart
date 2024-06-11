@@ -4,6 +4,7 @@ import 'package:cpd_project/widgets/app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../models/review_model.dart';
 import '../widgets/timer/timer_dropdown_widget.dart';
 import '../widgets/timer/timer_widgets.dart';
 
@@ -12,6 +13,7 @@ class PomodoroPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final revModel = Provider.of<ReviewModel>(context);
     return Consumer<PomodoroTimerModel>(
       builder: (context, pomModel, child) => Scaffold(
         backgroundColor: Colors.red[200],
@@ -34,7 +36,7 @@ class PomodoroPage extends StatelessWidget {
                 ),
                 pomPhaseHeading(pomModel),
                 createTimer(context, pomModel, true),
-                createButton(pomModel, Colors.red[600]),
+                createButton(revModel, pomModel, Colors.red[600]),
                 heading(
                   'Session: ${pomModel.session}',
                   mainHeading,

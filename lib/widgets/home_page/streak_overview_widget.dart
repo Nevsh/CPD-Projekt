@@ -1,9 +1,7 @@
-import 'package:cpd_project/models/exercise_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../models/meditation_timer_model.dart';
-import '../../models/pomodoro_timer_model.dart';
+import '../../models/activity.dart';
 import '../../models/review_model.dart';
 
 class StreakOverviewWidget extends StatelessWidget {
@@ -11,10 +9,11 @@ class StreakOverviewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final medModel = Provider.of<MeditationTimerModel>(context);
-    final pomModel = Provider.of<PomodoroTimerModel>(context);
-    final exModel = Provider.of<ExerciseModel>(context);
+    // final medModel = Provider.of<MeditationTimerModel>(context);
+    // final pomModel = Provider.of<PomodoroTimerModel>(context);
+    // final exModel = Provider.of<ExerciseModel>(context);
     final revModel = Provider.of<ReviewModel>(context);
+    Activity? activity = revModel.activity;
 
     return Container(
       width: MediaQuery.of(context).size.width,
@@ -30,22 +29,26 @@ class StreakOverviewWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               createIcon(context, 'assets/meditation_80.png',
-                  medModel.dailySessionDone),
-              createIcon(
-                  context, 'assets/pomodoro_80.png', pomModel.dailySessionDone),
-              createIcon(
-                  context, 'assets/exercise_80.png', exModel.dailySessionDone),
-              createIcon(
-                  context, 'assets/review_80.png', revModel.dailySessionDone),
+                  activity != null ? activity.meditation : false),
+              createIcon(context, 'assets/pomodoro_80.png',
+                  activity != null ? activity.pomodoro : false),
+              createIcon(context, 'assets/exercise_80.png',
+                  activity != null ? activity.exercise : false),
+              createIcon(context, 'assets/review_80.png',
+                  activity != null ? activity.review : false),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              createStreakCounter(context, medModel.streakCounter),
-              createStreakCounter(context, pomModel.streakCounter),
-              createStreakCounter(context, exModel.streakCounter),
-              createStreakCounter(context, revModel.streakCounter),
+              createStreakCounter(
+                  context, activity != null ? activity.medStreak : 0),
+              createStreakCounter(
+                  context, activity != null ? activity.pomStreak : 0),
+              createStreakCounter(
+                  context, activity != null ? activity.exStreak : 0),
+              createStreakCounter(
+                  context, activity != null ? activity.revStreak : 0),
             ],
           ),
         ],

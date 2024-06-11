@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/exercise_model.dart';
+import '../../models/review_model.dart';
 import '../timer/timer_dropdown_widget.dart';
 
 class RandomExerciseWidget extends StatelessWidget {
@@ -10,6 +11,7 @@ class RandomExerciseWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final exModel = Provider.of<ExerciseModel>(context);
+    final revModel = Provider.of<ReviewModel>(context);
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -67,7 +69,7 @@ class RandomExerciseWidget extends StatelessWidget {
                             : (switchState) {
                                 exModel.reminderIsActivated = switchState;
                                 if (exModel.reminderIsActivated) {
-                                  exModel.startReminder();
+                                  exModel.startReminder(revModel);
                                 } else {
                                   exModel.stopTimer();
                                 }
