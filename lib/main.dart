@@ -21,6 +21,7 @@ import 'models/pomodoro_timer_model.dart';
 Future<void> main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(ActivityAdapter());
+  // await Hive.deleteBoxFromDisk('activityBox');
 
   // var box = await Hive.openBox('activityBox');
   // await box.deleteFromDisk();

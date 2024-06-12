@@ -8,9 +8,9 @@ class PomodoroTimerModel extends TimerModel {
   int _breakTime = 0;
   int _timeSelected = 0;
   bool _focusSessionDone = false;
-  int _session = 0;
+  // int _session = 0;
   final List<int> _durationList = const [25, 50, 90];
-  final List<int> _breakDurationList = const [5, 10, 18];
+  final List<int> _breakDurationList = const [5, 10, 20];
 
   @override
   List<int> get durationList => _durationList;
@@ -18,7 +18,7 @@ class PomodoroTimerModel extends TimerModel {
   int get breakTime => _breakTime;
   int get timeSelected => _timeSelected;
   bool get focusSessionDone => _focusSessionDone;
-  int get session => _session;
+  // int get session => _session;
 
   @override
   void timerSet(int? selectedTime) {
@@ -43,7 +43,7 @@ class PomodoroTimerModel extends TimerModel {
   @override
   void startTimer(ReviewModel revModel) {
     notifyListeners();
-    // timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
+    // timer = Timer.periodic(const Duration(seconds: 1), (_) {
     timer = Timer.periodic(const Duration(milliseconds: 1), (_) {
       if (timeInSec > 0) {
         timeInSec--;
@@ -61,7 +61,8 @@ class PomodoroTimerModel extends TimerModel {
             _focusSessionDone = true;
             timeInSec = _breakTime;
             maxTime = _breakTime;
-            _session++;
+            revModel.updatePomSessions();
+            // _session++;
           }
         }
       }

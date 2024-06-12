@@ -28,7 +28,7 @@ class ActivityAdapter extends TypeAdapter<Activity> {
       pomStreak: fields[8] as int,
       exStreak: fields[9] as int,
       revStreak: fields[10] as int,
-      activities: (fields[11] as List).cast<Activity>(),
+      pomSessions: fields[11] as int,
     );
   }
 
@@ -59,7 +59,7 @@ class ActivityAdapter extends TypeAdapter<Activity> {
       ..writeByte(10)
       ..write(obj.revStreak)
       ..writeByte(11)
-      ..write(obj.activities);
+      ..write(obj.pomSessions);
   }
 
   @override

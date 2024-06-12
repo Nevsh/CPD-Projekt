@@ -38,7 +38,7 @@ class Activity extends HiveObject {
   int revStreak;
 
   @HiveField(11)
-  List<Activity> activities;
+  int pomSessions;
 
   Activity(
       {required this.date,
@@ -52,5 +52,5 @@ class Activity extends HiveObject {
       required this.pomStreak,
       required this.exStreak,
       required this.revStreak,
-      required this.activities});
+      required this.pomSessions});
 }

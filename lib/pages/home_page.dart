@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             heading('Streaks', mainHeading, Colors.blue[800]),
             const SizedBox(height: 10),
             const StreakOverviewWidget(),
-            const SizedBox(height: 10),
+            const Expanded(child: SizedBox(height: 10)),
             heading('Categories', mainHeading, Colors.blue[800]),
             const SizedBox(height: 10),
             const CategoriesWidget(),

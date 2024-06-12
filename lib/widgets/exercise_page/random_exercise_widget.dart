@@ -1,3 +1,4 @@
+import 'package:cpd_project/config/headings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,13 +28,7 @@ class RandomExerciseWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Reminder',
-                style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.indigo[600]),
-              ),
+              heading('Reminder', subHeading1, Colors.indigo[600]),
               Row(
                 children: [
                   Container(

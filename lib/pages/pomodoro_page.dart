@@ -38,7 +38,7 @@ class PomodoroPage extends StatelessWidget {
                 createTimer(context, pomModel, true),
                 createButton(revModel, pomModel, Colors.red[600]),
                 heading(
-                  'Session: ${pomModel.session}',
+                  'Sessions: ${revModel.activity != null ? revModel.activity!.pomSessions : 0}',
                   mainHeading,
                   Colors.white,
                 ),

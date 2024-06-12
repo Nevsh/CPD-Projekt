@@ -94,6 +94,13 @@ class ReviewModel extends ChangeNotifier {
     saveActivity();
   }
 
+  void updatePomSessions() {
+    if (_activity != null) {
+      _activity!.pomSessions++;
+    }
+    saveActivity();
+  }
+
   void setChosenMood(String chosenMood) {
     print(chosenMood);
     _chosenMood = chosenMood;
@@ -240,7 +247,7 @@ class ReviewModel extends ChangeNotifier {
       pomStreak: 0,
       exStreak: 0,
       revStreak: 0,
-      activities: [],
+      pomSessions: 0,
     );
     Activity? act2 = Activity(
       date: '2024-06-12',
@@ -254,7 +261,7 @@ class ReviewModel extends ChangeNotifier {
       pomStreak: 5,
       exStreak: 4,
       revStreak: 2,
-      activities: [],
+      pomSessions: 0,
     );
     Activity? act3 = Activity(
       date: '2024-06-02',
@@ -268,7 +275,7 @@ class ReviewModel extends ChangeNotifier {
       pomStreak: 0,
       exStreak: 0,
       revStreak: 0,
-      activities: [],
+      pomSessions: 0,
     );
     await HiveService.saveActivity(act1);
     await HiveService.saveActivity(act2);
@@ -286,8 +293,8 @@ class ReviewModel extends ChangeNotifier {
 
   Future<void> loadActivity() async {
     DateTime now = DateTime.now();
-    // String today = DateFormat('yyyy-MM-dd').format(now);
-    String today = "2024-06-16";
+    String today = DateFormat('yyyy-MM-dd').format(now);
+    // String today = "2024-06-16";
     print("Heute: $today");
     print("Heute: $now");
     _activity = await HiveService.getActivity(today);
@@ -304,7 +311,7 @@ class ReviewModel extends ChangeNotifier {
         pomStreak: 0,
         exStreak: 0,
         revStreak: 0,
-        activities: [],
+        pomSessions: 0,
       );
       saveActivity();
       // _activities.add(_activity!);
