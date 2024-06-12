@@ -40,7 +40,7 @@ class AddExerciseWidget extends StatelessWidget {
                   ),
                   // border: ,
                   hintText: 'E.g. push-ups',
-                  hintStyle: TextStyle(color: Colors.blueGrey[300]),
+                  hintStyle: TextStyle(color: Colors.indigo[300]),
                   suffixIcon: IconButton(
                     onPressed: () {
                       exModel.textController.clear();
@@ -58,7 +58,7 @@ class AddExerciseWidget extends StatelessWidget {
                 },
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.blueGrey[600]!),
+                      MaterialStateProperty.all<Color>(Colors.indigo[600]!),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -75,7 +75,7 @@ class AddExerciseWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 6),
-            heading('Exercise List', subHeading1, Colors.blueGrey[600]),
+            heading('Exercise List', subHeading1, Colors.indigo[600]),
             const SizedBox(height: 6),
             Expanded(
               child: Container(

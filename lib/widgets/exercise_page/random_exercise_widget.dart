@@ -32,7 +32,7 @@ class RandomExerciseWidget extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blueGrey[600]),
+                    color: Colors.indigo[600]),
               ),
               Row(
                 children: [
@@ -56,7 +56,7 @@ class RandomExerciseWidget extends StatelessWidget {
                   ),
                   const SizedBox(width: 6),
                   Switch(
-                    activeTrackColor: Colors.green,
+                    activeTrackColor: Colors.indigoAccent,
                     inactiveTrackColor: Colors.grey[600],
                     inactiveThumbColor:
                         exModel.inputIsSet() && exModel.exerciseList.isNotEmpty
@@ -124,7 +124,7 @@ class RandomExerciseWidget extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blueGrey,
+                  color: Colors.indigo,
                 ),
               ),
             ),

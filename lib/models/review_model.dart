@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../data/hive_service.dart';
 import 'activity.dart';
@@ -122,6 +123,11 @@ class ReviewModel extends ChangeNotifier {
   //   activity.review = true;
   //   // notifyListeners();
   // }
+  String formattedDate(Activity? activity) {
+    return activity != null
+        ? DateFormat('dd.MM.yyyy').format(DateTime.parse(activity.date))
+        : "error";
+  }
 
   Future<void> saveReview(String mood, String note) async {
     if (_activity != null) {
@@ -281,7 +287,7 @@ class ReviewModel extends ChangeNotifier {
   Future<void> loadActivity() async {
     DateTime now = DateTime.now();
     // String today = DateFormat('yyyy-MM-dd').format(now);
-    String today = "2024-06-15";
+    String today = "2024-06-16";
     print("Heute: $today");
     print("Heute: $now");
     _activity = await HiveService.getActivity(today);
