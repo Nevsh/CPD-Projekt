@@ -14,35 +14,51 @@ class PomodoroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final revModel = Provider.of<ReviewModel>(context);
+    final currentWidth = MediaQuery.of(context).size.width;
     return Consumer<PomodoroTimerModel>(
       builder: (context, pomModel, child) => Scaffold(
         backgroundColor: Colors.red[200],
         appBar: const CustomAppBar(),
-        body: Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+        body: SingleChildScrollView(
           child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TimerDropdown(
-                  timerModel: pomModel,
-                  optList: pomModel.breakDurationList,
-                  unit: 'min',
-                  // items: pomModel.pomDurationList,
-                  value: pomModel.time,
-                  onChanged: pomModel.timerSet,
-                  hintText: 'Choose duration: work / break ',
-                  icon: const Icon(Icons.watch_later_outlined),
+            child: SizedBox(
+              width: currentWidth > 500 ? 500 : currentWidth,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const SizedBox(height: 100),
+                        TimerDropdown(
+                          timerModel: pomModel,
+                          optList: pomModel.breakDurationList,
+                          unit: 'min',
+                          // items: pomModel.pomDurationList,
+                          value: pomModel.time,
+                          onChanged: pomModel.timerSet,
+                          hintText: 'Choose duration: work / break ',
+                          icon: const Icon(Icons.watch_later_outlined),
+                        ),
+                        const SizedBox(height: 25),
+                        pomPhaseHeading(pomModel),
+                        const SizedBox(height: 25),
+                        createTimer(context, constraints, pomModel, true),
+                        const SizedBox(height: 100),
+                        createButton(
+                            constraints, revModel, pomModel, Colors.red[600]),
+                        const SizedBox(height: 25),
+                        heading(
+                          'Sessions: ${revModel.activity != null ? revModel.activity!.pomSessions : 0}',
+                          mainHeading,
+                          Colors.white,
+                        ),
+                      ],
+                    );
+                  },
                 ),
-                pomPhaseHeading(pomModel),
-                createTimer(context, pomModel, true),
-                createButton(revModel, pomModel, Colors.red[600]),
-                heading(
-                  'Sessions: ${revModel.activity != null ? revModel.activity!.pomSessions : 0}',
-                  mainHeading,
-                  Colors.white,
-                ),
-              ],
+              ),
             ),
           ),
         ),

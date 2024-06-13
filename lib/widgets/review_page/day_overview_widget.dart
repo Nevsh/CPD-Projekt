@@ -7,8 +7,10 @@ import '../../models/review_model.dart';
 import '../home_page/streak_overview_widget.dart';
 
 class DayOverviewWidget extends StatelessWidget {
-  const DayOverviewWidget({super.key, required this.activity});
+  const DayOverviewWidget(
+      {super.key, required this.activity, this.review = true});
   final Activity? activity;
+  final bool review;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +27,8 @@ class DayOverviewWidget extends StatelessWidget {
         color: Colors.white70,
         borderRadius: BorderRadius.circular(16),
       ),
-      // height: MediaQuery.of(context).size.height / 3.25,
-      width: MediaQuery.of(context).size.width,
+      // height: 260,
+      // width: MediaQuery.of(context).size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -35,17 +37,19 @@ class DayOverviewWidget extends StatelessWidget {
             children: [
               Align(
                 alignment: Alignment.centerLeft,
-                child: heading('Completed', subHeading2, Colors.deepPurple),
+                child: heading('Completed', subHeading2,
+                    review ? Colors.deepPurple : Colors.blue[600]),
               ),
               Text(
                 revModel.formattedDate(activity),
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold, color: Colors.deepPurple),
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: review ? Colors.deepPurple : Colors.blue[600]),
               ),
             ],
           ),
           Container(
-            height: MediaQuery.of(context).size.height / 12,
+            height: 80,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: Colors.black12,
@@ -65,13 +69,14 @@ class DayOverviewWidget extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
           Align(
             alignment: Alignment.centerLeft,
-            child: heading('Review', subHeading2, Colors.deepPurple),
+            child: heading('Review', subHeading2,
+                review ? Colors.deepPurple : Colors.blue[600]),
           ),
           Container(
-            height: MediaQuery.of(context).size.height / 12,
+            height: 80,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: Colors.black12,
@@ -91,7 +96,8 @@ class DayOverviewWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        heading('Note', subHeading3, Colors.deepPurple[400]),
+                        heading('Note', subHeading3,
+                            review ? Colors.deepPurple[400] : Colors.blue),
                         Text(
                           // revModel.userNote,
                           activity != null

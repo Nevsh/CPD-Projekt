@@ -12,24 +12,32 @@ class ExercisePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
     return Consumer<ExerciseModel>(
       builder: (context, exModel, child) => Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.indigo[300],
         appBar: const CustomAppBar(),
-        body: Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              heading('Add Exercise', mainHeading, Colors.indigo[800]),
-              const SizedBox(height: 10),
-              const AddExerciseWidget(),
-              const SizedBox(height: 10),
-              heading('Random Exercise', mainHeading, Colors.indigo[800]),
-              const SizedBox(height: 10),
-              const RandomExerciseWidget(),
-            ],
+        body: SingleChildScrollView(
+          child: Center(
+            child: SizedBox(
+              width: currentWidth > 500 ? 500 : currentWidth,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    heading('Add Exercise', mainHeading, Colors.indigo[800]),
+                    const SizedBox(height: 10),
+                    const AddExerciseWidget(),
+                    const SizedBox(height: 10),
+                    heading('Random Exercise', mainHeading, Colors.indigo[800]),
+                    const SizedBox(height: 10),
+                    const RandomExerciseWidget(),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),

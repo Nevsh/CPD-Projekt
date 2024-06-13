@@ -11,25 +11,34 @@ class ReviewPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
+
     return Consumer<ReviewModel>(
       builder: (context, revModel, child) => Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.deepPurple[200],
         appBar: const CustomAppBar(),
-        body: Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              heading('Review', mainHeading, Colors.deepPurple[800]),
-              const SizedBox(height: 10),
-              const ReviewWidget(),
-              const Expanded(child: SizedBox()),
-              heading('Today', mainHeading, Colors.deepPurple[800]),
-              const SizedBox(height: 10),
-              DayOverviewWidget(activity: revModel.activity),
-            ],
+        body: SingleChildScrollView(
+          child: Center(
+            child: SizedBox(
+              width: currentWidth > 500 ? 500 : currentWidth,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    heading('Review', mainHeading, Colors.deepPurple[800]),
+                    const SizedBox(height: 10),
+                    const ReviewWidget(),
+                    const SizedBox(height: 10),
+                    heading('Today', mainHeading, Colors.deepPurple[800]),
+                    const SizedBox(height: 10),
+                    DayOverviewWidget(activity: revModel.activity),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
       ),

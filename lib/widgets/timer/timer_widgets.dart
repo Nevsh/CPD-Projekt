@@ -5,17 +5,19 @@ import 'package:flutter/material.dart';
 class TimerButton extends StatelessWidget {
   const TimerButton(
       {super.key,
+      required this.constraints,
       required this.onClicked,
       required this.icon,
       required this.color});
 
+  final BoxConstraints constraints;
   final Icon icon;
   final VoidCallback onClicked;
   final Color? color;
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width / 4;
+    double width = constraints.maxWidth / 4;
     double height = width;
 
     return ElevatedButton(
@@ -31,8 +33,8 @@ class TimerButton extends StatelessWidget {
   }
 }
 
-Widget createButton(
-    ReviewModel revModel, TimerModel timer, Color? buttonColor) {
+Widget createButton(BoxConstraints constraints, ReviewModel revModel,
+    TimerModel timer, Color? buttonColor) {
   final isRunning = timer.timer == null ? false : timer.timer!.isActive;
   final isCompleted = timer.timeInSec == timer.maxTime || timer.timeInSec == 0;
 
@@ -41,6 +43,7 @@ Widget createButton(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TimerButton(
+              constraints: constraints,
               onClicked: () {
                 if (isRunning) {
                   timer.stopTimer(reset: false);
@@ -65,6 +68,7 @@ Widget createButton(
               width: 32,
             ),
             TimerButton(
+              constraints: constraints,
               onClicked: timer.stopTimer,
               icon: const Icon(
                 Icons.refresh,
@@ -76,6 +80,7 @@ Widget createButton(
           ],
         )
       : TimerButton(
+          constraints: constraints,
           onClicked: () {
             if (timer.timeInSec > 0) {
               timer.startTimer(revModel);
@@ -111,9 +116,10 @@ Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
           Icon(
             Icons.done_rounded,
             color: timer.inputIsSet() ? Colors.greenAccent : Colors.transparent,
-            // size: 160,
-            size: MediaQuery.of(context).size.width / 3,
+            size: 160,
+            // size: MediaQuery.of(context).size.width / 3,
           )
+          // Image.asset('assets/check_80.png'),
         ],
       );
     }
@@ -142,15 +148,13 @@ Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
         );
 }
 
-Widget createTimer(BuildContext context, dynamic timer, bool isPomodoroPage) {
-  double width = MediaQuery.of(context).size.width / 2;
-  double height = width;
-
+Widget createTimer(BuildContext context, BoxConstraints constraints,
+    TimerModel timer, bool isPomodoroPage) {
   return SizedBox(
     // width: 200,
     // height: 200,
-    width: width,
-    height: height,
+    width: constraints.maxWidth / 2,
+    height: constraints.maxWidth / 2,
     child: Stack(
       fit: StackFit.expand,
       children: [

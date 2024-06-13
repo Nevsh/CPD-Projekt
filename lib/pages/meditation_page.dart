@@ -13,29 +13,46 @@ class MeditationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final revModel = Provider.of<ReviewModel>(context);
+    final currentWidth = MediaQuery.of(context).size.width;
+    // final currentHeight = MediaQuery.of(context).size.height;
+
     return Consumer<MeditationTimerModel>(
       builder: (context, medModel, child) => Scaffold(
         backgroundColor: Colors.teal[200],
         appBar: const CustomAppBar(),
-        body: Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+        body: SingleChildScrollView(
           child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TimerDropdown(
-                  timerModel: medModel,
-                  optList: medModel.durationList,
-                  unit: 'min',
-                  // items: medModel.medDurationList,
-                  value: medModel.time,
-                  onChanged: medModel.timerSet,
-                  hintText: 'Choose duration: ',
-                  icon: const Icon(Icons.watch_later_outlined),
+            child: SizedBox(
+              width: currentWidth > 500 ? 500 : currentWidth,
+              // height: currentHeight - 56,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const SizedBox(height: 100),
+                        TimerDropdown(
+                          timerModel: medModel,
+                          optList: medModel.durationList,
+                          unit: 'min',
+                          // items: medModel.medDurationList,
+                          value: medModel.time,
+                          onChanged: medModel.timerSet,
+                          hintText: 'Choose duration: ',
+                          icon: const Icon(Icons.watch_later_outlined),
+                        ),
+                        const SizedBox(height: 100),
+                        createTimer(context, constraints, medModel, false),
+                        const SizedBox(height: 100),
+                        createButton(
+                            constraints, revModel, medModel, Colors.teal[600]),
+                      ],
+                    );
+                  },
                 ),
-                createTimer(context, medModel, false),
-                createButton(revModel, medModel, Colors.teal[600]),
-              ],
+              ),
             ),
           ),
         ),

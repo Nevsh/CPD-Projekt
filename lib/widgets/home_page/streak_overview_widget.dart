@@ -16,59 +16,114 @@ class StreakOverviewWidget extends StatelessWidget {
     Activity? activity = revModel.activity;
 
     return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 128,
+      // width: MediaQuery.of(context).size.width,
+      height: 120,
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: Colors.black12,
       ),
-      child: Column(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Column(
             children: [
-              createIcon(context, 'assets/meditation_80.png',
-                  activity != null ? activity.meditation : false),
-              createIcon(context, 'assets/pomodoro_80.png',
-                  activity != null ? activity.pomodoro : false),
-              createIcon(context, 'assets/exercise_80.png',
-                  activity != null ? activity.exercise : false),
-              createIcon(context, 'assets/review_80.png',
-                  activity != null ? activity.review : false),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+              Flexible(
+                child: createIcon(context, 'assets/meditation_80.png',
+                    activity != null ? activity.meditation : false),
+              ),
+              const SizedBox(height: 10),
               createStreakCounter(
                   context, activity != null ? activity.medStreak : 0),
+            ],
+          ),
+          Column(
+            children: [
+              Flexible(
+                child: createIcon(context, 'assets/pomodoro_80.png',
+                    activity != null ? activity.pomodoro : false),
+              ),
+              const SizedBox(height: 10),
               createStreakCounter(
                   context, activity != null ? activity.pomStreak : 0),
+            ],
+          ),
+          Column(
+            children: [
+              Flexible(
+                child: createIcon(context, 'assets/exercise_80.png',
+                    activity != null ? activity.exercise : false),
+              ),
+              const SizedBox(height: 10),
               createStreakCounter(
                   context, activity != null ? activity.exStreak : 0),
+            ],
+          ),
+          Column(
+            children: [
+              Flexible(
+                child: createIcon(context, 'assets/review_80.png',
+                    activity != null ? activity.review : false),
+              ),
+              const SizedBox(height: 10),
               createStreakCounter(
                   context, activity != null ? activity.revStreak : 0),
             ],
           ),
         ],
       ),
+      // child: Column(
+      //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //   children: [
+      //     Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //       children: [
+      //         createIcon(context, 'assets/meditation_80.png',
+      //             activity != null ? activity.meditation : false),
+      //         createIcon(context, 'assets/pomodoro_80.png',
+      //             activity != null ? activity.pomodoro : false),
+      //         createIcon(context, 'assets/exercise_80.png',
+      //             activity != null ? activity.exercise : false),
+      //         createIcon(context, 'assets/review_80.png',
+      //             activity != null ? activity.review : false),
+      //       ],
+      //     ),
+      //     Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //       children: [
+      //         createStreakCounter(
+      //             context, activity != null ? activity.medStreak : 0),
+      //         createStreakCounter(
+      //             context, activity != null ? activity.pomStreak : 0),
+      //         createStreakCounter(
+      //             context, activity != null ? activity.exStreak : 0),
+      //         createStreakCounter(
+      //             context, activity != null ? activity.revStreak : 0),
+      //       ],
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
 
 Widget createIcon(BuildContext context, String asset, bool dailySessionDone) {
   return SizedBox(
-    width: MediaQuery.of(context).size.width / 8,
+    // width: MediaQuery.of(context).size.width / 8,
     child: dailySessionDone
         ? Stack(
             children: [
               Image.asset(asset),
-              Icon(
-                Icons.check_circle_outline_rounded,
-                color: Colors.greenAccent,
-                size: MediaQuery.of(context).size.width / 8,
-              )
+              // const Icon(
+              //   Icons.check_circle_outline_rounded,
+              //   color: Colors.greenAccent,
+              //   size: 30,
+              // )
+              Image.asset(
+                'assets/check_80.png',
+                width: 30,
+                alignment: Alignment.center,
+              ),
             ],
           )
         : Image.asset(asset),
@@ -78,7 +133,8 @@ Widget createIcon(BuildContext context, String asset, bool dailySessionDone) {
 Widget createStreakCounter(BuildContext context, int streakCount) {
   return Container(
     padding: const EdgeInsets.all(3),
-    width: MediaQuery.of(context).size.width / 8,
+    width: 64,
+    // width: MediaQuery.of(context).size.width / 8,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(10),
       color: Colors.black26,

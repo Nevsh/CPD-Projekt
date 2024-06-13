@@ -284,7 +284,7 @@ class ReviewModel extends ChangeNotifier {
   }
 
   Future<void> loadData() async {
-    // await demoSaveActivity();
+    await demoSaveActivity();
     await loadAllActivities();
     await loadLastActivity();
     await loadActivity();

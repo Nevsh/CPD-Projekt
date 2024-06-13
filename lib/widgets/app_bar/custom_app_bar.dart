@@ -8,17 +8,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       scrolledUnderElevation: 0,
       backgroundColor: Colors.transparent,
-      leading: Padding(
-        padding: EdgeInsets.only(left: MediaQuery.of(context).size.width / 24),
-        child: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.white,
-            size: 32,
-          ),
-          onPressed: () => Navigator.of(context).pop(),
+      leading: IconButton(
+        icon: const Icon(
+          Icons.arrow_back_ios,
+          color: Colors.white,
+          size: 32,
         ),
+        onPressed: () => Navigator.of(context).pop(),
       ),
+      leadingWidth: 64,
     );
   }
 

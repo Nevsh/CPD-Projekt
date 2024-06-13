@@ -13,7 +13,6 @@ import 'package:provider/provider.dart';
 import 'models/activity.dart';
 import 'models/activity_model.dart';
 import 'models/exercise_model.dart';
-import 'models/history_model.dart';
 import 'models/home_navigation_bar_model.dart';
 import 'models/meditation_timer_model.dart';
 import 'models/pomodoro_timer_model.dart';
@@ -45,31 +44,16 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) {
           return ActivityModel();
         }),
-        ChangeNotifierProvider(create: (context) {
-          final model = MeditationTimerModel();
-          // model.loadModelData();
-          return model;
-        }),
-        ChangeNotifierProvider(create: (context) {
-          final model = PomodoroTimerModel();
-          // model.loadModelData();
-          return model;
-        }),
+        ChangeNotifierProvider(create: (context) => MeditationTimerModel()),
+        ChangeNotifierProvider(create: (context) => PomodoroTimerModel()),
         ChangeNotifierProvider(create: (context) {
           final model = ExerciseModel();
-          // model.loadModelData();
           model.loadExercises();
           return model;
         }),
         ChangeNotifierProvider(create: (context) {
           final model = ReviewModel();
-          // model.loadModelData(context);
           model.loadData();
-          return model;
-        }),
-        ChangeNotifierProvider(create: (context) {
-          final model = HistoryModel();
-          // model.loadActivity();
           return model;
         }),
         ChangeNotifierProvider(create: (context) => HomeNavigationBarModel()),

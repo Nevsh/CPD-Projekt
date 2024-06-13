@@ -14,34 +14,44 @@ class HistoryPage extends StatelessWidget {
     final numOfActivities =
         revModel.activities.length < 7 ? revModel.activities.length : 7;
     final activities = revModel.activities.sublist(0, numOfActivities);
+    final scrollController = ScrollController();
+    final currentWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: Colors.blue[300],
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 32),
-            heading(
-                "Last $numOfActivities activities", mainHeading, Colors.white),
-            Expanded(
-              child: Scrollbar(
-                thumbVisibility: true,
-                trackVisibility: true,
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: numOfActivities,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: DayOverviewWidget(activity: activities[index]),
-                    );
-                  },
+      body: Center(
+        child: SizedBox(
+          width: currentWidth > 500 ? 500 : currentWidth,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 32),
+                heading("Last $numOfActivities activities", mainHeading,
+                    Colors.white),
+                Expanded(
+                  child: Scrollbar(
+                    thumbVisibility: true,
+                    trackVisibility: true,
+                    controller: scrollController,
+                    child: ListView.builder(
+                      controller: scrollController,
+                      padding: EdgeInsets.zero,
+                      itemCount: numOfActivities,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: DayOverviewWidget(
+                              activity: activities[index], review: false),
+                        );
+                      },
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
