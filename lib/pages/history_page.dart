@@ -3,6 +3,7 @@ import 'package:cpd_project/widgets/review_page/day_overview_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../config/palette.dart';
 import '../models/review_model.dart';
 
 class HistoryPage extends StatelessWidget {
@@ -18,18 +19,25 @@ class HistoryPage extends StatelessWidget {
     final currentWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.blue[300],
+      backgroundColor: Palette.mainPageBackgroundColor,
       body: Center(
         child: SizedBox(
           width: currentWidth > 500 ? 500 : currentWidth,
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.only(
+              left: 16,
+              top: 16,
+              right: 16,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 32),
-                heading("Last $numOfActivities activities", mainHeading,
-                    Colors.white),
+                heading(
+                  "Last $numOfActivities activities",
+                  mainHeading,
+                  Palette.hisMainHeadingColor,
+                ),
                 Expanded(
                   child: Scrollbar(
                     thumbVisibility: true,
@@ -41,9 +49,11 @@ class HistoryPage extends StatelessWidget {
                       itemCount: numOfActivities,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.only(top: 8, bottom: 8),
                           child: DayOverviewWidget(
-                              activity: activities[index], review: false),
+                            activity: activities[index],
+                            review: false,
+                          ),
                         );
                       },
                     ),

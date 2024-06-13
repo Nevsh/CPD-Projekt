@@ -6,6 +6,8 @@ import 'package:cpd_project/widgets/review_page/review_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../config/palette.dart';
+
 class ReviewPage extends StatelessWidget {
   const ReviewPage({super.key});
 
@@ -16,7 +18,7 @@ class ReviewPage extends StatelessWidget {
     return Consumer<ReviewModel>(
       builder: (context, revModel, child) => Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.deepPurple[200],
+        backgroundColor: Palette.revPageBackgroundColor,
         appBar: const CustomAppBar(),
         body: SingleChildScrollView(
           child: Center(
@@ -28,11 +30,11 @@ class ReviewPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    heading('Review', mainHeading, Colors.deepPurple[800]),
+                    heading('Review', mainHeading, Palette.revMainHeadingColor),
                     const SizedBox(height: 10),
                     const ReviewWidget(),
                     const SizedBox(height: 10),
-                    heading('Today', mainHeading, Colors.deepPurple[800]),
+                    heading('Today', mainHeading, Palette.revMainHeadingColor),
                     const SizedBox(height: 10),
                     DayOverviewWidget(activity: revModel.activity),
                   ],

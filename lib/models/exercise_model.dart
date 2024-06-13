@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:cpd_project/models/review_model.dart';
 import 'package:cpd_project/models/timer_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 
+import '../config/assets.dart';
 import '../data/hive_service.dart';
 
 class ExerciseModel extends TimerModel {
@@ -83,7 +84,7 @@ class ExerciseModel extends TimerModel {
         generateRandomExercise();
         // saveModelData();
         // dailySessionDone = true;
-        FlutterRingtonePlayer().playNotification();
+        audioPlayer.play(AssetSource(Assets.reminder_sound));
         revModel.exDailySessionDone = true;
         // context.read<ReviewModel>().exDailySessionDone = true;
         stopTimer(reset: reset);

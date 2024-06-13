@@ -2,6 +2,9 @@ import 'package:cpd_project/models/review_model.dart';
 import 'package:cpd_project/models/timer_model.dart';
 import 'package:flutter/material.dart';
 
+import '../../config/assets.dart';
+import '../../config/palette.dart';
+
 class TimerButton extends StatelessWidget {
   const TimerButton(
       {super.key,
@@ -54,12 +57,12 @@ Widget createButton(BoxConstraints constraints, ReviewModel revModel,
               icon: isRunning
                   ? const Icon(
                       Icons.pause,
-                      color: Colors.white,
+                      color: Palette.buttonTextAndIconColor,
                       size: 32,
                     )
                   : const Icon(
                       Icons.play_arrow,
-                      color: Colors.white,
+                      color: Palette.buttonTextAndIconColor,
                       size: 32,
                     ),
               color: buttonColor,
@@ -72,7 +75,7 @@ Widget createButton(BoxConstraints constraints, ReviewModel revModel,
               onClicked: timer.stopTimer,
               icon: const Icon(
                 Icons.refresh,
-                color: Colors.white,
+                color: Palette.buttonTextAndIconColor,
                 size: 32,
               ),
               color: buttonColor,
@@ -91,12 +94,12 @@ Widget createButton(BoxConstraints constraints, ReviewModel revModel,
           icon: timer.timeInSec == 0 && timer.inputIsSet()
               ? const Icon(
                   Icons.refresh,
-                  color: Colors.white,
+                  color: Palette.buttonTextAndIconColor,
                   size: 32,
                 )
               : const Icon(
                   Icons.play_arrow,
-                  color: Colors.white,
+                  color: Palette.buttonTextAndIconColor,
                   size: 32,
                 ),
           color: buttonColor,
@@ -111,23 +114,23 @@ Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
         fit: StackFit.expand,
         children: [
           isPomodoroPage
-              ? Image.asset('assets/pomodoro_80.png', scale: 0.75)
-              : Image.asset('assets/meditation_80.png', scale: 0.75),
+              ? Image.asset(Assets.pom_img, scale: 0.75)
+              : Image.asset(Assets.med_img, scale: 0.75),
           Icon(
             Icons.done_rounded,
-            color: timer.inputIsSet() ? Colors.greenAccent : Colors.transparent,
+            color: timer.inputIsSet()
+                ? Palette.timerDoneCheckColor
+                : Colors.transparent,
             size: 160,
-            // size: MediaQuery.of(context).size.width / 3,
           )
-          // Image.asset('assets/check_80.png'),
         ],
       );
     }
   }
   if (timer.timer == null && timer.time == null) {
     return isPomodoroPage
-        ? Image.asset('assets/pomodoro_80.png', scale: 0.75)
-        : Image.asset('assets/meditation_80.png', scale: 0.75);
+        ? Image.asset(Assets.pom_img, scale: 0.75)
+        : Image.asset(Assets.med_img, scale: 0.75);
   }
   return isPomodoroPage
       ? Text(
@@ -135,7 +138,9 @@ Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 48,
-            color: timer.focusSessionDone ? Colors.blue[900] : Colors.red[900],
+            color: timer.focusSessionDone
+                ? Palette.pomBreakPhaseFontColor
+                : Palette.pomWorkPhaseFontColor,
           ),
         )
       : Text(
@@ -143,7 +148,7 @@ Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 48,
-            color: Colors.teal[900],
+            color: Palette.medTimerFontColor,
           ),
         );
 }
@@ -151,8 +156,6 @@ Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
 Widget createTimer(BuildContext context, BoxConstraints constraints,
     TimerModel timer, bool isPomodoroPage) {
   return SizedBox(
-    // width: 200,
-    // height: 200,
     width: constraints.maxWidth / 2,
     height: constraints.maxWidth / 2,
     child: Stack(
@@ -161,8 +164,8 @@ Widget createTimer(BuildContext context, BoxConstraints constraints,
         CircularProgressIndicator(
           value: timer.calcTimeProgress(),
           strokeWidth: 12,
-          valueColor: const AlwaysStoppedAnimation(Colors.greenAccent),
-          backgroundColor: Colors.white,
+          valueColor: const AlwaysStoppedAnimation(Palette.timerIndicatorColor),
+          backgroundColor: Palette.timerBackgroundIndicatorColor,
         ),
         Center(
           child: createTime(context, timer, isPomodoroPage),

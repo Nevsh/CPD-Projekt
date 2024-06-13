@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:cpd_project/models/review_model.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,7 @@ abstract class TimerModel extends ChangeNotifier {
   int timeInSec = 0;
   int maxTime = 0;
   Timer? timer;
+  final AudioPlayer audioPlayer = AudioPlayer();
   // bool dailySessionDone = false;
 
   List<int> get durationList;
@@ -53,6 +55,10 @@ abstract class TimerModel extends ChangeNotifier {
   bool inputIsSet() {
     return time != null;
   }
+
+  // void playNotificationSound(String assetPath) async {
+  //   await audioPlayer.play(AssetSource(assetPath));
+  // }
 
   String formatTime(int seconds) {
     // Berechne Stunden, Minuten und Sekunden

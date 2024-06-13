@@ -4,6 +4,7 @@ import 'package:cpd_project/widgets/app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../config/palette.dart';
 import '../models/review_model.dart';
 import '../widgets/timer/timer_dropdown_widget.dart';
 import '../widgets/timer/timer_widgets.dart';
@@ -17,7 +18,7 @@ class PomodoroPage extends StatelessWidget {
     final currentWidth = MediaQuery.of(context).size.width;
     return Consumer<PomodoroTimerModel>(
       builder: (context, pomModel, child) => Scaffold(
-        backgroundColor: Colors.red[200],
+        backgroundColor: Palette.pomPageBackgroundColor,
         appBar: const CustomAppBar(),
         body: SingleChildScrollView(
           child: Center(
@@ -35,7 +36,6 @@ class PomodoroPage extends StatelessWidget {
                           timerModel: pomModel,
                           optList: pomModel.breakDurationList,
                           unit: 'min',
-                          // items: pomModel.pomDurationList,
                           value: pomModel.time,
                           onChanged: pomModel.timerSet,
                           hintText: 'Choose duration: work / break ',
@@ -47,7 +47,11 @@ class PomodoroPage extends StatelessWidget {
                         createTimer(context, constraints, pomModel, true),
                         const SizedBox(height: 100),
                         createButton(
-                            constraints, revModel, pomModel, Colors.red[600]),
+                          constraints,
+                          revModel,
+                          pomModel,
+                          Palette.pomTimerButtonColor,
+                        ),
                         const SizedBox(height: 25),
                         heading(
                           'Sessions: ${revModel.activity != null ? revModel.activity!.pomSessions : 0}',

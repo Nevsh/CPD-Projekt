@@ -1,3 +1,4 @@
+import 'package:cpd_project/config/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +30,7 @@ class StreakOverviewWidget extends StatelessWidget {
           Column(
             children: [
               Flexible(
-                child: createIcon(context, 'assets/meditation_80.png',
+                child: createIcon(context, Assets.med_img,
                     activity != null ? activity.meditation : false),
               ),
               const SizedBox(height: 10),
@@ -40,7 +41,7 @@ class StreakOverviewWidget extends StatelessWidget {
           Column(
             children: [
               Flexible(
-                child: createIcon(context, 'assets/pomodoro_80.png',
+                child: createIcon(context, Assets.pom_img,
                     activity != null ? activity.pomodoro : false),
               ),
               const SizedBox(height: 10),
@@ -51,7 +52,7 @@ class StreakOverviewWidget extends StatelessWidget {
           Column(
             children: [
               Flexible(
-                child: createIcon(context, 'assets/exercise_80.png',
+                child: createIcon(context, Assets.ex_img,
                     activity != null ? activity.exercise : false),
               ),
               const SizedBox(height: 10),
@@ -62,7 +63,7 @@ class StreakOverviewWidget extends StatelessWidget {
           Column(
             children: [
               Flexible(
-                child: createIcon(context, 'assets/review_80.png',
+                child: createIcon(context, Assets.rev_img,
                     activity != null ? activity.review : false),
               ),
               const SizedBox(height: 10),
@@ -114,15 +115,9 @@ Widget createIcon(BuildContext context, String asset, bool dailySessionDone) {
         ? Stack(
             children: [
               Image.asset(asset),
-              // const Icon(
-              //   Icons.check_circle_outline_rounded,
-              //   color: Colors.greenAccent,
-              //   size: 30,
-              // )
               Image.asset(
-                'assets/check_80.png',
+                Assets.check_img,
                 width: 30,
-                alignment: Alignment.center,
               ),
             ],
           )

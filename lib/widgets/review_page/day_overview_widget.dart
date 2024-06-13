@@ -2,6 +2,8 @@ import 'package:cpd_project/config/headings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../config/assets.dart';
+import '../../config/palette.dart';
 import '../../models/activity.dart';
 import '../../models/review_model.dart';
 import '../home_page/streak_overview_widget.dart';
@@ -24,7 +26,7 @@ class DayOverviewWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white70,
+        color: Palette.revSubContainer1Color,
         borderRadius: BorderRadius.circular(16),
       ),
       // height: 260,
@@ -37,14 +39,20 @@ class DayOverviewWidget extends StatelessWidget {
             children: [
               Align(
                 alignment: Alignment.centerLeft,
-                child: heading('Completed', subHeading2,
-                    review ? Colors.deepPurple : Colors.blue[600]),
+                child: heading(
+                    'Completed',
+                    subHeading2,
+                    review
+                        ? Palette.revSubHeading1Color
+                        : Palette.hisSubHeading1Color),
               ),
               Text(
                 revModel.formattedDate(activity),
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: review ? Colors.deepPurple : Colors.blue[600]),
+                    color: review
+                        ? Palette.revSubHeading1Color
+                        : Palette.hisSubHeading1Color),
               ),
             ],
           ),
@@ -52,19 +60,19 @@ class DayOverviewWidget extends StatelessWidget {
             height: 80,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Colors.black12,
+              color: Palette.revSubContainer2Color,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                createIcon(context, 'assets/meditation_80.png',
+                createIcon(context, Assets.med_img,
                     activity != null ? activity!.meditation : false),
-                createIcon(context, 'assets/pomodoro_80.png',
+                createIcon(context, Assets.pom_img,
                     activity != null ? activity!.pomodoro : false),
-                createIcon(context, 'assets/exercise_80.png',
+                createIcon(context, Assets.ex_img,
                     activity != null ? activity!.exercise : false),
-                createIcon(context, 'assets/review_80.png',
+                createIcon(context, Assets.rev_img,
                     activity != null ? activity!.review : false),
               ],
             ),
@@ -72,14 +80,18 @@ class DayOverviewWidget extends StatelessWidget {
           const SizedBox(height: 10),
           Align(
             alignment: Alignment.centerLeft,
-            child: heading('Review', subHeading2,
-                review ? Colors.deepPurple : Colors.blue[600]),
+            child: heading(
+                'Review',
+                subHeading2,
+                review
+                    ? Palette.revSubHeading1Color
+                    : Palette.hisSubHeading1Color),
           ),
           Container(
             height: 80,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Colors.black12,
+              color: Palette.exSubContainer2Color,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -89,17 +101,20 @@ class DayOverviewWidget extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(6),
                     decoration: BoxDecoration(
-                      color: Colors.white70,
+                      color: Palette.revSubContainer3Color,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        heading('Note', subHeading3,
-                            review ? Colors.deepPurple[400] : Colors.blue),
+                        heading(
+                            'Note',
+                            subHeading3,
+                            review
+                                ? Palette.revSubHeading2Color
+                                : Palette.hisSubHeading2Color),
                         Text(
-                          // revModel.userNote,
                           activity != null
                               ? activity!.note
                               : 'Fehler: activity null',
@@ -112,9 +127,7 @@ class DayOverviewWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 8),
                   child: Image.asset(
-                    // 'assets/${revModel.savedMood}_96.png',
-                    'assets/${activity != null ? activity!.rating : 'empty'}_96.png',
-                    // height: 60,
+                    'assets/images/${activity != null ? activity!.rating : 'empty'}_96.png',
                   ),
                 ),
               ],

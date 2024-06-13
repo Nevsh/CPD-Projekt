@@ -3,6 +3,7 @@ import 'package:cpd_project/widgets/timer/timer_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../config/palette.dart';
 import '../models/meditation_timer_model.dart';
 import '../models/review_model.dart';
 import '../widgets/timer/timer_dropdown_widget.dart';
@@ -18,7 +19,7 @@ class MeditationPage extends StatelessWidget {
 
     return Consumer<MeditationTimerModel>(
       builder: (context, medModel, child) => Scaffold(
-        backgroundColor: Colors.teal[200],
+        backgroundColor: Palette.medPageBackgroundColor,
         appBar: const CustomAppBar(),
         body: SingleChildScrollView(
           child: Center(
@@ -47,7 +48,11 @@ class MeditationPage extends StatelessWidget {
                         createTimer(context, constraints, medModel, false),
                         const SizedBox(height: 100),
                         createButton(
-                            constraints, revModel, medModel, Colors.teal[600]),
+                          constraints,
+                          revModel,
+                          medModel,
+                          Palette.medTimerButtonColor,
+                        ),
                       ],
                     );
                   },

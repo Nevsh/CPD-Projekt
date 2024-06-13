@@ -1,8 +1,10 @@
 import 'dart:async';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:cpd_project/models/review_model.dart';
 import 'package:cpd_project/models/timer_model.dart';
-import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
+
+import '../config/assets.dart';
 
 class PomodoroTimerModel extends TimerModel {
   int _breakTime = 0;
@@ -48,7 +50,7 @@ class PomodoroTimerModel extends TimerModel {
       if (timeInSec > 0) {
         timeInSec--;
         if (timeInSec == 0) {
-          FlutterRingtonePlayer().playNotification();
+          audioPlayer.play(AssetSource(Assets.done_sound));
           // context.read<ReviewModel>().pomDailySessionDone = true;
           revModel.pomDailySessionDone = true;
           // ac.pomDailySessionDone = true;

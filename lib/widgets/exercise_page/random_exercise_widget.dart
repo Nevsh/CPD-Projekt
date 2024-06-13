@@ -2,6 +2,7 @@ import 'package:cpd_project/config/headings.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../config/palette.dart';
 import '../../models/exercise_model.dart';
 import '../../models/review_model.dart';
 import '../timer/timer_dropdown_widget.dart';
@@ -17,7 +18,7 @@ class RandomExerciseWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white54,
+        color: Palette.exSubContainer1Color,
         borderRadius: BorderRadius.circular(16),
       ),
       width: MediaQuery.of(context).size.width,
@@ -28,7 +29,7 @@ class RandomExerciseWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              heading('Reminder', subHeading1, Colors.indigo[600]),
+              heading('Reminder', subHeading1, Palette.exSubHeadingColor),
               Row(
                 children: [
                   Container(
@@ -37,7 +38,7 @@ class RandomExerciseWidget extends StatelessWidget {
                       right: 3,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Palette.exTimerBackgroundColor,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(
@@ -45,18 +46,18 @@ class RandomExerciseWidget extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.blueGrey,
+                        color: Palette.exTimerFontColor,
                       ),
                     ),
                   ),
                   const SizedBox(width: 6),
                   Switch(
-                    activeTrackColor: Colors.indigoAccent,
-                    inactiveTrackColor: Colors.grey[600],
+                    activeTrackColor: Palette.exActiveTrackColor,
+                    inactiveTrackColor: Palette.exInactiveTrackColor,
                     inactiveThumbColor:
                         exModel.inputIsSet() && exModel.exerciseList.isNotEmpty
-                            ? Colors.white
-                            : Colors.grey,
+                            ? Palette.exInactiveThumbColor
+                            : Palette.exInactiveDisabledThumbColor,
                     value: exModel.reminderIsActivated,
                     onChanged:
                         !exModel.inputIsSet() || exModel.exerciseList.isEmpty
@@ -106,11 +107,11 @@ class RandomExerciseWidget extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Container(
-            height: MediaQuery.of(context).size.height / 12,
+            height: 70,
             width: double.infinity,
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Colors.black12,
+              color: Palette.exSubContainer2Color,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Center(
@@ -119,7 +120,7 @@ class RandomExerciseWidget extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.indigo,
+                  color: Palette.exTextFontColor,
                 ),
               ),
             ),

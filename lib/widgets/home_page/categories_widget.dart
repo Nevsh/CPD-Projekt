@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../config/palette.dart';
+
 class CategoriesWidget extends StatelessWidget {
   const CategoriesWidget({super.key});
 
@@ -36,8 +38,6 @@ class CategoriesWidget extends StatelessWidget {
           itemCount: 4,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            // childAspectRatio:
-            //     (MediaQuery.of(context).size.height - 50 - 25) / (4 * 240),
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
           ),
@@ -53,19 +53,19 @@ class CategoriesWidget extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.white54,
+                  color: Palette.homeCategoryContainerColor,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.asset('assets/${imageList[index]}_80.png'),
+                    Image.asset('assets/images/${imageList[index]}_80.png'),
                     Center(
                       child: Text(
                         '${categoryList[index]}',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue[600],
+                          color: Palette.homeCategoryContainerFontColor,
                         ),
                       ),
                     ),

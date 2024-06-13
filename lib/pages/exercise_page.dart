@@ -5,6 +5,7 @@ import 'package:cpd_project/widgets/exercise_page/random_exercise_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../config/palette.dart';
 import '../models/exercise_model.dart';
 
 class ExercisePage extends StatelessWidget {
@@ -16,7 +17,7 @@ class ExercisePage extends StatelessWidget {
     return Consumer<ExerciseModel>(
       builder: (context, exModel, child) => Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.indigo[300],
+        backgroundColor: Palette.exPageBackgroundColor,
         appBar: const CustomAppBar(),
         body: SingleChildScrollView(
           child: Center(
@@ -27,11 +28,13 @@ class ExercisePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    heading('Add Exercise', mainHeading, Colors.indigo[800]),
+                    heading('Add Exercise', mainHeading,
+                        Palette.exMainHeadingColor),
                     const SizedBox(height: 10),
                     const AddExerciseWidget(),
                     const SizedBox(height: 10),
-                    heading('Random Exercise', mainHeading, Colors.indigo[800]),
+                    heading('Random Exercise', mainHeading,
+                        Palette.exMainHeadingColor),
                     const SizedBox(height: 10),
                     const RandomExerciseWidget(),
                   ],

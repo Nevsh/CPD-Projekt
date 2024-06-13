@@ -6,6 +6,7 @@ import 'package:cpd_project/pages/main_page.dart';
 import 'package:cpd_project/pages/meditation_page.dart';
 import 'package:cpd_project/pages/pomodoro_page.dart';
 import 'package:cpd_project/pages/review_page.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +21,19 @@ import 'models/pomodoro_timer_model.dart';
 Future<void> main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(ActivityAdapter());
+
+  if (kIsWeb) {
+    print('Ist Web');
+  } else {
+    print('Nicht Web');
+  }
+  // if (Platform.isWindows) {
+  //   print('Platform ist Windows');
+  //   WidgetsFlutterBinding.ensureInitialized();
+  //   await windowManager.ensureInitialized();
+  //   WindowManager.instance.setMinimumSize(const Size(500, 1000));
+  //   WindowManager.instance.setMaximumSize(const Size(1200, 1000));
+  // }
   // await Hive.deleteBoxFromDisk('activityBox');
 
   // var box = await Hive.openBox('activityBox');
