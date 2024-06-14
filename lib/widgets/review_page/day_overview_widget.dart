@@ -66,13 +66,13 @@ class DayOverviewWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                createIcon(context, Assets.med_img,
+                createIcon(context, Assets.medImg,
                     activity != null ? activity!.meditation : false),
-                createIcon(context, Assets.pom_img,
+                createIcon(context, Assets.pomImg,
                     activity != null ? activity!.pomodoro : false),
-                createIcon(context, Assets.ex_img,
+                createIcon(context, Assets.exImg,
                     activity != null ? activity!.exercise : false),
-                createIcon(context, Assets.rev_img,
+                createIcon(context, Assets.revImg,
                     activity != null ? activity!.review : false),
               ],
             ),

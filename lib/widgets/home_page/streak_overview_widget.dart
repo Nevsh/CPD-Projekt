@@ -30,7 +30,7 @@ class StreakOverviewWidget extends StatelessWidget {
           Column(
             children: [
               Flexible(
-                child: createIcon(context, Assets.med_img,
+                child: createIcon(context, Assets.medImg,
                     activity != null ? activity.meditation : false),
               ),
               const SizedBox(height: 10),
@@ -41,7 +41,7 @@ class StreakOverviewWidget extends StatelessWidget {
           Column(
             children: [
               Flexible(
-                child: createIcon(context, Assets.pom_img,
+                child: createIcon(context, Assets.pomImg,
                     activity != null ? activity.pomodoro : false),
               ),
               const SizedBox(height: 10),
@@ -52,7 +52,7 @@ class StreakOverviewWidget extends StatelessWidget {
           Column(
             children: [
               Flexible(
-                child: createIcon(context, Assets.ex_img,
+                child: createIcon(context, Assets.exImg,
                     activity != null ? activity.exercise : false),
               ),
               const SizedBox(height: 10),
@@ -63,7 +63,7 @@ class StreakOverviewWidget extends StatelessWidget {
           Column(
             children: [
               Flexible(
-                child: createIcon(context, Assets.rev_img,
+                child: createIcon(context, Assets.revImg,
                     activity != null ? activity.review : false),
               ),
               const SizedBox(height: 10),
@@ -116,7 +116,7 @@ Widget createIcon(BuildContext context, String asset, bool dailySessionDone) {
             children: [
               Image.asset(asset),
               Image.asset(
-                Assets.check_img,
+                Assets.checkImg,
                 width: 30,
               ),
             ],

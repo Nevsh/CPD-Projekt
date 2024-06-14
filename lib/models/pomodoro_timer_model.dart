@@ -50,7 +50,7 @@ class PomodoroTimerModel extends TimerModel {
       if (timeInSec > 0) {
         timeInSec--;
         if (timeInSec == 0) {
-          audioPlayer.play(AssetSource(Assets.done_sound));
+          audioPlayer.play(AssetSource(Assets.doneSound));
           // context.read<ReviewModel>().pomDailySessionDone = true;
           revModel.pomDailySessionDone = true;
           // ac.pomDailySessionDone = true;

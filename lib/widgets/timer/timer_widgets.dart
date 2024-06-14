@@ -114,8 +114,8 @@ Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
         fit: StackFit.expand,
         children: [
           isPomodoroPage
-              ? Image.asset(Assets.pom_img, scale: 0.75)
-              : Image.asset(Assets.med_img, scale: 0.75),
+              ? Image.asset(Assets.pomImg, scale: 0.75)
+              : Image.asset(Assets.medImg, scale: 0.75),
           Icon(
             Icons.done_rounded,
             color: timer.inputIsSet()
@@ -129,8 +129,8 @@ Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
   }
   if (timer.timer == null && timer.time == null) {
     return isPomodoroPage
-        ? Image.asset(Assets.pom_img, scale: 0.75)
-        : Image.asset(Assets.med_img, scale: 0.75);
+        ? Image.asset(Assets.pomImg, scale: 0.75)
+        : Image.asset(Assets.medImg, scale: 0.75);
   }
   return isPomodoroPage
       ? Text(

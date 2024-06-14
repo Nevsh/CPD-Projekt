@@ -84,7 +84,7 @@ class ExerciseModel extends TimerModel {
         generateRandomExercise();
         // saveModelData();
         // dailySessionDone = true;
-        audioPlayer.play(AssetSource(Assets.reminder_sound));
+        audioPlayer.play(AssetSource(Assets.reminderSound));
         revModel.exDailySessionDone = true;
         // context.read<ReviewModel>().exDailySessionDone = true;
         stopTimer(reset: reset);

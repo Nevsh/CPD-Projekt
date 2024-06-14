@@ -38,7 +38,7 @@ class MeditationTimerModel extends TimerModel {
             print('Nicht Web');
           }
           audioPlayer.play(
-            AssetSource(Assets.bell_sound),
+            AssetSource(Assets.bellSound),
           );
           revModel.medDailySessionDone = true;
           // context.read<ReviewModel>().medDailySessionDone = true;

@@ -41,7 +41,7 @@ class ReviewWidget extends StatelessWidget {
                     children: [
                       Flexible(
                         child: TransparentImageButtonWidget(
-                          imagePath: Assets.sad_img,
+                          imagePath: Assets.sadImg,
                           onPressed: () => revModel.setChosenMood('sad'),
                           mood: 'sad',
                           reviewModel: revModel,
@@ -49,7 +49,7 @@ class ReviewWidget extends StatelessWidget {
                       ),
                       Flexible(
                         child: TransparentImageButtonWidget(
-                          imagePath: Assets.not_good_img,
+                          imagePath: Assets.notGoodImg,
                           onPressed: () => revModel.setChosenMood('not_good'),
                           mood: 'not_good',
                           reviewModel: revModel,
@@ -57,7 +57,7 @@ class ReviewWidget extends StatelessWidget {
                       ),
                       Flexible(
                         child: TransparentImageButtonWidget(
-                          imagePath: Assets.neutral_img,
+                          imagePath: Assets.neutralImg,
                           onPressed: () => revModel.setChosenMood('neutral'),
                           mood: 'neutral',
                           reviewModel: revModel,
@@ -65,7 +65,7 @@ class ReviewWidget extends StatelessWidget {
                       ),
                       Flexible(
                         child: TransparentImageButtonWidget(
-                          imagePath: Assets.good_img,
+                          imagePath: Assets.goodImg,
                           onPressed: () => revModel.setChosenMood('good'),
                           mood: 'good',
                           reviewModel: revModel,
@@ -73,7 +73,7 @@ class ReviewWidget extends StatelessWidget {
                       ),
                       Flexible(
                         child: TransparentImageButtonWidget(
-                          imagePath: Assets.happy_img,
+                          imagePath: Assets.happyImg,
                           onPressed: () => revModel.setChosenMood('happy'),
                           mood: 'happy',
                           reviewModel: revModel,
