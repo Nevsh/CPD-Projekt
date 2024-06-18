@@ -77,16 +77,12 @@ class ExerciseModel extends TimerModel {
     final completer = Completer<void>();
 
     timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
-      // timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (timeInSec > 0) {
         timeInSec--;
       } else {
         generateRandomExercise();
-        // saveModelData();
-        // dailySessionDone = true;
         audioPlayer.play(AssetSource(Assets.reminderSound));
         revModel.exDailySessionDone = true;
-        // context.read<ReviewModel>().exDailySessionDone = true;
         stopTimer(reset: reset);
         completer.complete(); // Signalisiert das Ende des Timers
       }
@@ -104,20 +100,6 @@ class ExerciseModel extends TimerModel {
     }
     _reminderIsActivated = false;
   }
-
-  // void loadModelData() async {
-  //   streakCounter = await HiveService.getStreakCounter('exercise_streak');
-  //   dailySessionDone = await HiveService.getDailySessionDone('exercise_done');
-  //   notifyListeners();
-  // }
-  //
-  // void saveModelData() async {
-  //   if (!dailySessionDone) {
-  //     streakCounter++;
-  //     await HiveService.saveStreakCounter('exercise_streak', streakCounter);
-  //     await HiveService.saveDailySessionDone('exercise_done', dailySessionDone);
-  //   }
-  // }
 
   void loadExercises() async {
     _exerciseList = await HiveService.getExerciseList();

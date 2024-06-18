@@ -7,36 +7,15 @@ import 'activity.dart';
 class ReviewModel extends ChangeNotifier {
   final TextEditingController _textController = TextEditingController();
   String _chosenMood = 'empty';
-  // String _savedMood = 'empty';
-  // String _userNote = '';
-  // bool _medDailySessionDone = false;
-  // bool _pomDailySessionDone = false;
-  // bool _exDailySessionDone = false;
-  // bool _revDailySessionDone = false;
-  // int _medStreakCounter = 0;
-  // int _pomStreakCounter = 0;
-  // int _exStreakCounter = 0;
-  // int _revStreakCounter = 0;
   Activity? _activity;
   Activity? _lastActivity;
   List<Activity> _activities = [];
 
-  // int get medStreakCounter => _medStreakCounter;
-  // int get pomStreakCounter => _pomStreakCounter;
-  // int get exStreakCounter => _exStreakCounter;
-  // int get revStreakCounter => _revStreakCounter;
-  // set streakCounter(int value) => _streakCounter = value;
-
+  TextEditingController get textController => _textController;
+  String get chosenMood => _chosenMood;
   Activity? get activity => _activity;
   List<Activity> get activities => _activities;
   Activity? get lastActivity => _lastActivity;
-  // Activity? get lastActivity {
-  //   loadAllActivities();
-  //   if (_activities.isNotEmpty) {
-  //     return _activities.first;
-  //   }
-  //   return null;
-  // }
 
   Future<void> loadLastActivity() async {
     // loadAllActivities();
@@ -49,17 +28,7 @@ class ReviewModel extends ChangeNotifier {
     }
   }
 
-  String get chosenMood => _chosenMood;
-  // String get savedMood => _savedMood;
-  // String get userNote => _userNote;
-  // bool get medDailySessionDone => _medDailySessionDone;
-  // bool get pomDailySessionDone => _pomDailySessionDone;
-  // bool get exDailySessionDone => _exDailySessionDone;
-  // bool get revDailySessionDone => _revDailySessionDone;
-  TextEditingController get textController => _textController;
-
   set medDailySessionDone(bool done) {
-    // _medDailySessionDone = done;
     if (_activity != null && !_activity!.meditation) {
       _activity!.meditation = done;
       _activity!.medStreak++;
@@ -68,7 +37,6 @@ class ReviewModel extends ChangeNotifier {
   }
 
   set pomDailySessionDone(bool done) {
-    // _pomDailySessionDone = done;
     if (_activity != null && !_activity!.pomodoro) {
       _activity!.pomodoro = done;
       _activity!.pomStreak++;
@@ -77,7 +45,6 @@ class ReviewModel extends ChangeNotifier {
   }
 
   set exDailySessionDone(bool done) {
-    // _exDailySessionDone = done;
     if (_activity != null && !_activity!.exercise) {
       _activity!.exercise = done;
       _activity!.exStreak++;
@@ -86,7 +53,6 @@ class ReviewModel extends ChangeNotifier {
   }
 
   set revDailySessionDone(bool done) {
-    // _revDailySessionDone = done;
     if (_chosenMood != 'empty' && _activity != null && !_activity!.review) {
       _activity!.review = done;
       _activity!.revStreak++;
@@ -108,28 +74,15 @@ class ReviewModel extends ChangeNotifier {
   }
 
   void setSavedMood(String mood) {
-    // Activity? activity = context.read<ActivityModel>().activity;
-    // _savedMood = mood;
     _activity!.rating = mood;
-
-    // notifyListeners();
   }
 
   void setUserNote(String note) {
-    // Activity? activity = context.read<ActivityModel>().activity;
     if (note.isNotEmpty) {
-      // _userNote = note;
       _activity!.note = note;
-      // notifyListeners();
     }
   }
 
-  // void setDailySessionDone(Activity activity) {
-  //   // Activity? activity = context.read<ActivityModel>().activity;
-  //   _dailySessionDone = true;
-  //   activity.review = true;
-  //   // notifyListeners();
-  // }
   String formattedDate(Activity? activity) {
     return activity != null
         ? DateFormat('dd.MM.yyyy').format(DateTime.parse(activity.date))
@@ -149,24 +102,12 @@ class ReviewModel extends ChangeNotifier {
 
   Future<void> loadModelData() async {
     if (activity != null) {
-      // _medDailySessionDone = _activity!.meditation;
-      // _pomDailySessionDone = _activity!.pomodoro;
-      // _exDailySessionDone = _activity!.exercise;
-      // _revDailySessionDone = _activity!.review;
       _chosenMood = _activity!.rating;
-      // _savedMood = _activity!.rating;
-      // _userNote = _activity!.note;
-      // _medStreakCounter = _activity!.medStreak;
-      // _pomStreakCounter = _activity!.pomStreak;
-      // _exStreakCounter = _activity!.exStreak;
-      // _revStreakCounter = _activity!.revStreak;
       checkStreak();
-      // print(activities);
     } else {
       print(
           "Fehler loading: activity $activity und lastActivity $lastActivity");
     }
-    // streakCounter = await HiveService.getStreakCounter('review_streak');
     notifyListeners();
   }
 
@@ -214,7 +155,6 @@ class ReviewModel extends ChangeNotifier {
     // _activities.sort((a, b) => b.date.compareTo(a.date));
     print("Unsotiert:");
     printActivities();
-    // print(_activities[3].date);
     _activities.sort((a, b) {
       DateTime dateA = DateTime.parse(a.date);
       DateTime dateB = DateTime.parse(b.date);
@@ -222,7 +162,6 @@ class ReviewModel extends ChangeNotifier {
     });
     print("Sotiert:");
     printActivities();
-    // print(_activities[3].date);
     notifyListeners();
   }
 
@@ -320,111 +259,4 @@ class ReviewModel extends ChangeNotifier {
     print("Activity = $_activity");
     notifyListeners();
   }
-
-  // Activity? get lastActivity {
-  //   loadAllActivities();
-  //   if (_activities.isNotEmpty) {
-  //     return _activities.first;
-  //   }
-  //   return null;
-  // }
-
-  // Future<void> loadModelData(BuildContext context) async {
-  //   // dailySessionDone = await HiveService.getDailySessionDone('review_done');
-  //   Activity? activity = context.read<ActivityModel>().activity;
-  //   Activity? lastActivity = context.read<ActivityModel>().lastActivity;
-  //   if (activity != null && lastActivity != null) {
-  //     _dailySessionDone = activity.review;
-  //     _chosenMood = activity.rating;
-  //     _savedMood = activity.rating;
-  //     _userNote = activity.note;
-  //     // checkStreak(context, activity, lastActivity, lastActivity.review);
-  //     checkStreak(context, activity);
-  //   } else {
-  //     print(
-  //         "Fehler loading: activity $activity und lastActivity $lastActivity");
-  //   }
-  //   streakCounter = await HiveService.getStreakCounter('review_streak');
-  //   notifyListeners();
-  // }
-
-  // Future<void> checkStreak(BuildContext context, Activity activity) async {
-  //   Activity? lastActivity = context.read<ActivityModel>().lastActivity;
-  //   if (lastActivity != null) {
-  //     DateTime activityDate = DateTime.parse(activity.date);
-  //     DateTime lastActivityDate = DateTime.parse(lastActivity.date);
-  //     int differenceInDays = activityDate.difference(lastActivityDate).inDays;
-  //     if (differenceInDays > 1 ||
-  //         (differenceInDays == 1 && !lastActivity.review)) {
-  //       await HiveService.saveStreakCounter('review_streak', 0);
-  //     }
-  //   } else {
-  //     await HiveService.saveStreakCounter('review_streak', 0);
-  //   }
-  // }
-
-  // Future<void> checkStreak(BuildContext context) async {
-  //   Activity? lastActivity = context.read<ActivityModel>().lastActivity;
-  //   if (lastActivity != null) {
-  //     if (!lastActivity.meditation) {
-  //       await HiveService.saveStreakCounter('meditation_streak', 0);
-  //     }
-  //     if (!lastActivity.pomodoro) {
-  //       await HiveService.saveStreakCounter('pomodoro_streak', 0);
-  //     }
-  //     if (!lastActivity.exercise) {
-  //       await HiveService.saveStreakCounter('exercise_streak', 0);
-  //     }
-  //     if (!lastActivity.review) {
-  //       await HiveService.saveStreakCounter('review_streak', 0);
-  //     }
-  //   }
-  // }
-
-  // void saveModelData() async {
-  //   if (!_dailySessionDone) {
-  //     await HiveService.saveStreakCounter('review_streak', streakCounter++);
-  //     await HiveService.saveDailySessionDone('review_done', dailySessionDone);
-  //   }
-  // }
-
-  // Future<void> saveActivity(Activity activity) async {
-  //   await HiveService.saveActivity(activity);
-  //   await loadAllActivities();
-  // }
-  //
-  // Future<void> loadAllActivities() async {
-  //   _activities = await HiveService.getAllActivities();
-  //   // Sortiere die Aktivitäten nach Datum, absteigend
-  //   _activities.sort((a, b) => b.date.compareTo(a.date));
-  //   notifyListeners();
-  // }
-  //
-  // Future<void> loadActivity() async {
-  //   String today = DateFormat('yyyy-MM-dd').format(DateTime.now());
-  //   _activity = await HiveService.getActivity(today);
-  //   if (_activity == null) {
-  //     _activity = Activity(
-  //       date: today,
-  //       meditation: false,
-  //       pomodoro: false,
-  //       exercise: false,
-  //       review: false,
-  //       rating: 'empty',
-  //       note: '',
-  //     );
-  //     saveActivity(_activity!);
-  //     _activities.add(_activity!);
-  //   }
-  //   savedMood = _activity!.rating;
-  //   userNote = _activity!.note;
-  //   notifyListeners();
-  // }
-  //
-  // Activity? get latestActivity {
-  //   if (_activities.isNotEmpty) {
-  //     return _activities.first;
-  //   }
-  //   return null;
-  // }
 }

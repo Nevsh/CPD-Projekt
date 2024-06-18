@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 class Palette {
   // Homepage / History Page
   static Color mainPageBackgroundColor = Colors.blue[300]!;
+  static Color mainNavBarIndicatorColor = Colors.blue[100]!;
 
   // Homepage
   static Color homeMainHeadingColor = Colors.blue[800]!;
+  static const Color homeStreakContainerColor = Colors.white24;
   static const Color homeCategoryContainerColor = Colors.white54;
   static Color homeCategoryContainerFontColor = Colors.blue[600]!;
 

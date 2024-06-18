@@ -14,6 +14,7 @@ class ExercisePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;
+
     return Consumer<ExerciseModel>(
       builder: (context, exModel, child) => Scaffold(
         resizeToAvoidBottomInset: false,
@@ -24,17 +25,27 @@ class ExercisePage extends StatelessWidget {
             child: SizedBox(
               width: currentWidth > 500 ? 500 : currentWidth,
               child: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                padding: const EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  bottom: 16,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    heading('Add Exercise', mainHeading,
-                        Palette.exMainHeadingColor),
+                    heading(
+                      'Add Exercise',
+                      mainHeading,
+                      Palette.exMainHeadingColor,
+                    ),
                     const SizedBox(height: 10),
                     const AddExerciseWidget(),
                     const SizedBox(height: 10),
-                    heading('Random Exercise', mainHeading,
-                        Palette.exMainHeadingColor),
+                    heading(
+                      'Random Exercise',
+                      mainHeading,
+                      Palette.exMainHeadingColor,
+                    ),
                     const SizedBox(height: 10),
                     const RandomExerciseWidget(),
                   ],

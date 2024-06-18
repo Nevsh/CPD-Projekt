@@ -1,4 +1,6 @@
 import 'package:cpd_project/config/headings.dart';
+import 'package:cpd_project/widgets/input_and_submit/input_field.dart';
+import 'package:cpd_project/widgets/input_and_submit/submit_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,56 +26,22 @@ class AddExerciseWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 6),
-            child: TextField(
-              controller: exModel.textController,
-              style: const TextStyle(fontSize: 18),
-              maxLength: 20,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Palette.textFieldColor,
-                border: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(16)),
-                  borderSide: BorderSide(
-                    width: 0,
-                    style: BorderStyle.none,
-                  ),
-                ),
-                // border: ,
-                hintText: 'E.g. push-ups',
-                hintStyle: TextStyle(color: Palette.exTextFieldHintColor),
-                suffixIcon: IconButton(
-                  onPressed: () {
-                    exModel.textController.clear();
-                  },
-                  icon: const Icon(Icons.clear_rounded),
-                ),
-              ),
-            ),
+          InputField(
+            controller: exModel.textController,
+            hintText: 'E.g. push-ups',
+            hintColor: Palette.exTextFieldHintColor,
           ),
+          const SizedBox(height: 8),
           Align(
             alignment: Alignment.centerRight,
-            child: ElevatedButton(
-              onPressed: () {
-                exModel.addExercise(exModel.textController.text);
+            child: SubmitButton(
+              color: Palette.exButtonColor,
+              text: 'Add',
+              action: () {
+                exModel.addExercise(
+                  exModel.textController.text,
+                );
               },
-              style: ButtonStyle(
-                backgroundColor:
-                    WidgetStateProperty.all<Color>(Palette.exButtonColor),
-                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-              ),
-              child: const Text(
-                'Add',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Palette.buttonTextAndIconColor,
-                ),
-              ),
             ),
           ),
           const SizedBox(height: 6),
@@ -84,7 +52,7 @@ class AddExerciseWidget extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Palette.exListBackgroundColor,
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(12),
               ),
               width: MediaQuery.of(context).size.width,
               child: Scrollbar(

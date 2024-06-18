@@ -16,6 +16,7 @@ class PomodoroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final revModel = Provider.of<ReviewModel>(context);
     final currentWidth = MediaQuery.of(context).size.width;
+
     return Consumer<PomodoroTimerModel>(
       builder: (context, pomModel, child) => Scaffold(
         backgroundColor: Palette.pomPageBackgroundColor,
@@ -25,7 +26,11 @@ class PomodoroPage extends StatelessWidget {
             child: SizedBox(
               width: currentWidth > 500 ? 500 : currentWidth,
               child: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                padding: const EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  bottom: 16,
+                ),
                 child: LayoutBuilder(
                   builder: (context, constraints) {
                     return Column(
@@ -44,7 +49,12 @@ class PomodoroPage extends StatelessWidget {
                         const SizedBox(height: 25),
                         pomPhaseHeading(pomModel),
                         const SizedBox(height: 25),
-                        createTimer(context, constraints, pomModel, true),
+                        createTimer(
+                          context,
+                          constraints,
+                          pomModel,
+                          true,
+                        ),
                         const SizedBox(height: 100),
                         createButton(
                           constraints,

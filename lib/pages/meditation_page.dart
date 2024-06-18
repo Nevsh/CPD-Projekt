@@ -15,7 +15,6 @@ class MeditationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final revModel = Provider.of<ReviewModel>(context);
     final currentWidth = MediaQuery.of(context).size.width;
-    // final currentHeight = MediaQuery.of(context).size.height;
 
     return Consumer<MeditationTimerModel>(
       builder: (context, medModel, child) => Scaffold(
@@ -25,9 +24,12 @@ class MeditationPage extends StatelessWidget {
           child: Center(
             child: SizedBox(
               width: currentWidth > 500 ? 500 : currentWidth,
-              // height: currentHeight - 56,
               child: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                padding: const EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  bottom: 16,
+                ),
                 child: LayoutBuilder(
                   builder: (context, constraints) {
                     return Column(
@@ -38,14 +40,18 @@ class MeditationPage extends StatelessWidget {
                           timerModel: medModel,
                           optList: medModel.durationList,
                           unit: 'min',
-                          // items: medModel.medDurationList,
                           value: medModel.time,
                           onChanged: medModel.timerSet,
                           hintText: 'Choose duration: ',
                           icon: const Icon(Icons.watch_later_outlined),
                         ),
                         const SizedBox(height: 100),
-                        createTimer(context, constraints, medModel, false),
+                        createTimer(
+                          context,
+                          constraints,
+                          medModel,
+                          false,
+                        ),
                         const SizedBox(height: 100),
                         createButton(
                           constraints,

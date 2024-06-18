@@ -30,8 +30,6 @@ class MeditationTimerModel extends TimerModel {
       if (timeInSec > 0) {
         timeInSec--;
         if (timeInSec == 0) {
-          // saveModelData();
-          // dailySessionDone = true;
           if (kIsWeb) {
             print('Ist Web');
           } else {
@@ -41,7 +39,6 @@ class MeditationTimerModel extends TimerModel {
             AssetSource(Assets.bellSound),
           );
           revModel.medDailySessionDone = true;
-          // context.read<ReviewModel>().medDailySessionDone = true;
           stopTimer(reset: false);
         }
       }
@@ -54,21 +51,4 @@ class MeditationTimerModel extends TimerModel {
     timeInSec = maxTime;
     notifyListeners();
   }
-
-  // void loadModelData() async {
-  //   print("load med counter");
-  //   streakCounter = await HiveService.getStreakCounter('meditation_streak');
-  //   dailySessionDone = await HiveService.getDailySessionDone('meditation_done');
-  //   notifyListeners();
-  // }
-
-  // void saveModelData() async {
-  //   if (!dailySessionDone) {
-  //     print("save and inc med counter");
-  //     streakCounter++;
-  //     await HiveService.saveStreakCounter('meditation_streak', streakCounter);
-  //     await HiveService.saveDailySessionDone(
-  //         'meditation_done', dailySessionDone);
-  //   }
-  // }
 }

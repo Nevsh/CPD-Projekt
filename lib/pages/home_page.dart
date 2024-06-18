@@ -19,19 +19,30 @@ class HomePage extends StatelessWidget {
           child: SizedBox(
             width: currentWidth > 500 ? 500 : currentWidth,
             child: Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+              padding: const EdgeInsets.only(
+                left: 16,
+                right: 16,
+                bottom: 16,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 10,
                   ),
-                  heading('Streaks', mainHeading, Palette.homeMainHeadingColor),
+                  heading(
+                    'Streaks',
+                    mainHeading,
+                    Palette.homeMainHeadingColor,
+                  ),
                   const SizedBox(height: 10),
                   const StreakOverviewWidget(),
                   const SizedBox(height: 10),
                   heading(
-                      'Categories', mainHeading, Palette.homeMainHeadingColor),
+                    'Categories',
+                    mainHeading,
+                    Palette.homeMainHeadingColor,
+                  ),
                   const SizedBox(height: 10),
                   const CategoriesWidget(),
                 ],

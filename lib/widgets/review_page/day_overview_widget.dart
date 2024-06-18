@@ -16,12 +16,7 @@ class DayOverviewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final medModel = Provider.of<MeditationTimerModel>(context);
-    // final pomModel = Provider.of<PomodoroTimerModel>(context);
-    // final exModel = Provider.of<ExerciseModel>(context);
     final revModel = Provider.of<ReviewModel>(context);
-
-    // final actModel = Provider.of<ActivityModel>(context);
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -29,8 +24,6 @@ class DayOverviewWidget extends StatelessWidget {
         color: Palette.revSubContainer1Color,
         borderRadius: BorderRadius.circular(16),
       ),
-      // height: 260,
-      // width: MediaQuery.of(context).size.width,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -49,10 +42,11 @@ class DayOverviewWidget extends StatelessWidget {
               Text(
                 revModel.formattedDate(activity),
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: review
-                        ? Palette.revSubHeading1Color
-                        : Palette.hisSubHeading1Color),
+                  fontWeight: FontWeight.bold,
+                  color: review
+                      ? Palette.revSubHeading1Color
+                      : Palette.hisSubHeading1Color,
+                ),
               ),
             ],
           ),
@@ -61,7 +55,7 @@ class DayOverviewWidget extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: Palette.revSubContainer2Color,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(12),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -92,7 +86,7 @@ class DayOverviewWidget extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: Palette.exSubContainer2Color,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(12),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,7 +96,7 @@ class DayOverviewWidget extends StatelessWidget {
                     padding: const EdgeInsets.all(6),
                     decoration: BoxDecoration(
                       color: Palette.revSubContainer3Color,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -115,9 +109,7 @@ class DayOverviewWidget extends StatelessWidget {
                                 ? Palette.revSubHeading2Color
                                 : Palette.hisSubHeading2Color),
                         Text(
-                          activity != null
-                              ? activity!.note
-                              : 'Fehler: activity null',
+                          activity != null ? activity!.note : 'no activity',
                           style: const TextStyle(fontSize: 13),
                         ),
                       ],

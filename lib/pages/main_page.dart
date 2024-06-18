@@ -1,3 +1,4 @@
+import 'package:cpd_project/config/palette.dart';
 import 'package:cpd_project/pages/history_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +26,7 @@ class MainPage extends StatelessWidget {
           onDestinationSelected: (index) {
             value.currentPageIndex = index;
           },
-          indicatorColor: Colors.blue[100],
+          indicatorColor: Palette.mainNavBarIndicatorColor,
         ),
       ),
     );

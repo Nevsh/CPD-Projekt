@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../config/palette.dart';
+
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
 
@@ -11,7 +13,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: IconButton(
         icon: const Icon(
           Icons.arrow_back_ios,
-          color: Colors.white,
+          color: Palette.buttonTextAndIconColor,
           size: 32,
         ),
         onPressed: () => Navigator.of(context).pop(),

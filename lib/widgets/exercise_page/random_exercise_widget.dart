@@ -108,11 +108,9 @@ class RandomExerciseWidget extends StatelessWidget {
           const SizedBox(height: 10),
           Container(
             height: 70,
-            width: double.infinity,
-            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: Palette.exSubContainer2Color,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(12),
             ),
             child: Center(
               child: Text(

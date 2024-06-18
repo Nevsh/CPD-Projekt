@@ -28,7 +28,6 @@ class TimerButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
         shape: const CircleBorder(),
-        // minimumSize: const Size(100, 100),
         minimumSize: Size(width, height),
       ),
       child: icon,
@@ -106,7 +105,7 @@ Widget createButton(BoxConstraints constraints, ReviewModel revModel,
         );
 }
 
-Widget createTime(BuildContext context, dynamic timer, bool isPomodoroPage) {
+Widget createTime(BuildContext context, timer, bool isPomodoroPage) {
   String formattedTime = timer.formatTime(timer.timeInSec);
   if (timer.timeInSec == 0) {
     if (!isPomodoroPage || timer.focusSessionDone) {

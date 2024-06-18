@@ -25,16 +25,28 @@ class ReviewPage extends StatelessWidget {
             child: SizedBox(
               width: currentWidth > 500 ? 500 : currentWidth,
               child: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                padding: const EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  bottom: 16,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    heading('Review', mainHeading, Palette.revMainHeadingColor),
+                    heading(
+                      'Review',
+                      mainHeading,
+                      Palette.revMainHeadingColor,
+                    ),
                     const SizedBox(height: 10),
                     const ReviewWidget(),
                     const SizedBox(height: 10),
-                    heading('Today', mainHeading, Palette.revMainHeadingColor),
+                    heading(
+                      'Today',
+                      mainHeading,
+                      Palette.revMainHeadingColor,
+                    ),
                     const SizedBox(height: 10),
                     DayOverviewWidget(activity: revModel.activity),
                   ],
