@@ -151,8 +151,6 @@ class ReviewModel extends ChangeNotifier {
 
   Future<void> loadAllActivities() async {
     _activities = await HiveService.getAllActivities();
-    // Sortiere die Aktivitäten nach Datum, absteigend
-    // _activities.sort((a, b) => b.date.compareTo(a.date));
     print("Unsotiert:");
     printActivities();
     _activities.sort((a, b) {

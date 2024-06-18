@@ -13,17 +13,6 @@ class MeditationTimerModel extends TimerModel {
   List<int> get durationList => _durationList;
 
   @override
-  void timerSet(int? selectedTime) {
-    if (selectedTime is int) {
-      time = selectedTime;
-      timeInSec = selectedTime * 60;
-      maxTime = selectedTime * 60;
-      stopTimer();
-      notifyListeners();
-    }
-  }
-
-  @override
   void startTimer(ReviewModel revModel) {
     notifyListeners();
     timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
@@ -44,11 +33,5 @@ class MeditationTimerModel extends TimerModel {
       }
       notifyListeners();
     });
-  }
-
-  @override
-  void resetTimer() {
-    timeInSec = maxTime;
-    notifyListeners();
   }
 }

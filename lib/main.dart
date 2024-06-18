@@ -12,7 +12,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'models/activity.dart';
-import 'models/activity_model.dart';
 import 'models/exercise_model.dart';
 import 'models/home_navigation_bar_model.dart';
 import 'models/meditation_timer_model.dart';
@@ -56,7 +55,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) {
-          return ActivityModel();
+          final model = ReviewModel();
+          model.loadData();
+          return model;
         }),
         ChangeNotifierProvider(create: (context) => MeditationTimerModel()),
         ChangeNotifierProvider(create: (context) => PomodoroTimerModel()),
@@ -65,16 +66,10 @@ class MyApp extends StatelessWidget {
           model.loadExercises();
           return model;
         }),
-        ChangeNotifierProvider(create: (context) {
-          final model = ReviewModel();
-          model.loadData();
-          return model;
-        }),
         ChangeNotifierProvider(create: (context) => HomeNavigationBarModel()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(scaffoldBackgroundColor: Colors.white),
         home: const MainPage(),
         routes: {
           '/home_page': (context) => const HomePage(),
