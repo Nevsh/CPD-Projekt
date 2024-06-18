@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../data/hive_service.dart';
-import 'activity.dart';
+import 'activity/activity.dart';
 
 class ReviewModel extends ChangeNotifier {
   final TextEditingController _textController = TextEditingController();

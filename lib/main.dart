@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
-import 'models/activity.dart';
+import 'models/activity/activity.dart';
 import 'models/exercise_model.dart';
 import 'models/home_navigation_bar_model.dart';
 import 'models/meditation_timer_model.dart';

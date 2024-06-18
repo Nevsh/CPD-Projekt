@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:hive/hive.dart';
 
-import '../models/activity.dart';
+import '../models/activity/activity.dart';
 
 class HiveService {
   static const String _activityBoxName = "activityBox";

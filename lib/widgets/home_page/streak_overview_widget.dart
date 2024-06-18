@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../config/palette.dart';
-import '../../models/activity.dart';
+import '../../models/activity/activity.dart';
 import '../../models/review_model.dart';
 
 class StreakOverviewWidget extends StatelessWidget {

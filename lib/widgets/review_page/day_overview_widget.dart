@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../config/assets.dart';
 import '../../config/palette.dart';
-import '../../models/activity.dart';
+import '../../models/activity/activity.dart';
 import '../../models/review_model.dart';
 import '../home_page/streak_overview_widget.dart';
 
