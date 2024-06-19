@@ -77,7 +77,6 @@ class ExerciseModel extends TimerModel {
   Future<void> startTimer(ReviewModel revModel, {bool reset = true}) async {
     final completer = Completer<void>();
 
-    // timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
     timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (timeInSec > 0) {
         timeInSec--;

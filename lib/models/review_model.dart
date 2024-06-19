@@ -18,13 +18,10 @@ class ReviewModel extends ChangeNotifier {
   Activity? get lastActivity => _lastActivity;
 
   Future<void> loadLastActivity() async {
-    // loadAllActivities();
     if (_activities.isNotEmpty) {
       _lastActivity = _activities.first;
-      print("lastActivty ist von ${lastActivity!.date}");
     } else {
       _lastActivity = null;
-      print("lastActivity ist null.");
     }
   }
 
@@ -86,7 +83,6 @@ class ReviewModel extends ChangeNotifier {
   }
 
   void setChosenMood(String chosenMood) {
-    print(chosenMood);
     _chosenMood = chosenMood;
     notifyListeners();
   }
@@ -104,7 +100,7 @@ class ReviewModel extends ChangeNotifier {
   String formattedDate(Activity? activity) {
     return activity != null
         ? DateFormat('dd.MM.yyyy').format(DateTime.parse(activity.date))
-        : "error";
+        : "no activity";
   }
 
   Future<void> saveReview(String mood, String note) async {
@@ -113,8 +109,6 @@ class ReviewModel extends ChangeNotifier {
       setUserNote(note);
       revDailySessionDone = true;
       notifyListeners();
-    } else {
-      print("Fehler saving: activity $_activity");
     }
   }
 
@@ -122,9 +116,6 @@ class ReviewModel extends ChangeNotifier {
     if (activity != null) {
       _chosenMood = _activity!.rating;
       checkStreak();
-    } else {
-      print(
-          "Fehler loading: activity $activity und lastActivity $lastActivity");
     }
     notifyListeners();
   }
@@ -134,7 +125,6 @@ class ReviewModel extends ChangeNotifier {
       DateTime activityDate = DateTime.parse(_activity!.date);
       DateTime lastActivityDate = DateTime.parse(lastActivity!.date);
       int differenceInDays = activityDate.difference(lastActivityDate).inDays;
-      print("Tage Unterschied $differenceInDays");
       if (differenceInDays == 1) {
         if (_lastActivity!.meditation) {
           _activity!.medStreak = lastActivity!.medStreak;
@@ -161,23 +151,13 @@ class ReviewModel extends ChangeNotifier {
     }
   }
 
-  void printActivities() {
-    for (var act in _activities) {
-      print('Datum: ${act.date}');
-    }
-  }
-
   Future<void> loadAllActivities() async {
     _activities = await HiveService.getAllActivities();
-    print("Unsotiert:");
-    printActivities();
     _activities.sort((a, b) {
       DateTime dateA = DateTime.parse(a.date);
       DateTime dateB = DateTime.parse(b.date);
       return dateB.compareTo(dateA); // Sortieren in absteigender Reihenfolge
     });
-    print("Sotiert:");
-    printActivities();
     notifyListeners();
   }
 
@@ -188,57 +168,7 @@ class ReviewModel extends ChangeNotifier {
     }
   }
 
-  // Erzeugen von Testaktivitäten
-  // Future<void> demoSaveActivity() async {
-  //   Activity? act1 = Activity(
-  //     date: '2024-06-16',
-  //     meditation: true,
-  //     pomodoro: true,
-  //     exercise: true,
-  //     review: true,
-  //     rating: 'good',
-  //     note: 'all done :)',
-  //     medStreak: 1,
-  //     pomStreak: 1,
-  //     exStreak: 1,
-  //     revStreak: 1,
-  //     pomSessions: 2,
-  //   );
-  //   Activity? act2 = Activity(
-  //     date: '2024-06-18',
-  //     meditation: true,
-  //     pomodoro: true,
-  //     exercise: true,
-  //     review: false,
-  //     rating: 'empty',
-  //     note: '',
-  //     medStreak: 3,
-  //     pomStreak: 1,
-  //     exStreak: 3,
-  //     revStreak: 0,
-  //     pomSessions: 1,
-  //   );
-  //   Activity? act3 = Activity(
-  //     date: '2024-06-17',
-  //     meditation: true,
-  //     pomodoro: false,
-  //     exercise: true,
-  //     review: false,
-  //     rating: 'empty',
-  //     note: '',
-  //     medStreak: 2,
-  //     pomStreak: 1,
-  //     exStreak: 2,
-  //     revStreak: 1,
-  //     pomSessions: 0,
-  //   );
-  //   await HiveService.saveActivity(act1);
-  //   await HiveService.saveActivity(act2);
-  //   await HiveService.saveActivity(act3);
-  // }
-
   Future<void> loadData() async {
-    // await demoSaveActivity();
     await loadAllActivities();
     await loadLastActivity();
     await loadActivity();
@@ -248,9 +178,6 @@ class ReviewModel extends ChangeNotifier {
   Future<void> loadActivity() async {
     DateTime now = DateTime.now();
     String today = DateFormat('yyyy-MM-dd').format(now);
-    // String today = "2024-06-16";
-    print("Heute: $today");
-    print("Heute: $now");
     _activity = await HiveService.getActivity(today);
     if (_activity == null) {
       _activity = Activity(
@@ -268,10 +195,7 @@ class ReviewModel extends ChangeNotifier {
         pomSessions: 0,
       );
       saveActivity();
-      // _activities.add(_activity!);
-      print("komplett neu");
     }
-    print("Activity = $_activity");
     notifyListeners();
   }
 }

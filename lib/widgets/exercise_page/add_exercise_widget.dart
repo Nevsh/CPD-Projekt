@@ -86,7 +86,8 @@ class AddExerciseWidget extends StatelessWidget {
                                 ? const Icon(Icons.clear_rounded)
                                 : const Opacity(
                                     opacity: 0.6,
-                                    child: Icon(Icons.clear_rounded)),
+                                    child: Icon(Icons.clear_rounded),
+                                  ),
                           ),
                         ],
                       ),
