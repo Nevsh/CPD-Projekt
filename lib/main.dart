@@ -34,7 +34,7 @@ Future<void> main() async {
   //   WindowManager.instance.setMinimumSize(const Size(500, 1000));
   //   WindowManager.instance.setMaximumSize(const Size(1200, 1000));
   // }
-  // await Hive.deleteBoxFromDisk('activityBox');
+  await Hive.deleteBoxFromDisk('activityBox');
 
   // var box = await Hive.openBox('activityBox');
   // await box.deleteFromDisk();

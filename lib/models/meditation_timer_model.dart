@@ -20,9 +20,6 @@ class MeditationTimerModel extends TimerModel {
       if (timeInSec > 0) {
         timeInSec--;
         if (timeInSec == 0) {
-          // audioPlayer.play(
-          //   AssetSource(Assets.bellSound),
-          // );
           audioPlayer.play(Assets.bellSound);
           revModel.medDailySessionDone = true;
           stopTimer(reset: false);

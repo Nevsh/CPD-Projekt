@@ -44,12 +44,11 @@ class PomodoroTimerModel extends TimerModel {
   @override
   void startTimer(ReviewModel revModel) {
     notifyListeners();
-    timer = Timer.periodic(const Duration(milliseconds: 1), (_) {
-      // timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
+    // timer = Timer.periodic(const Duration(seconds: 1), (_) {
+    timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
       if (timeInSec > 0) {
         timeInSec--;
         if (timeInSec == 0) {
-          // audioPlayer.play(AssetSource(Assets.doneSound));
           audioPlayer.play(Assets.doneSound);
           if (_focusSessionDone) {
             stopTimer(reset: false);

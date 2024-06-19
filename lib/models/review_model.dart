@@ -191,51 +191,50 @@ class ReviewModel extends ChangeNotifier {
   // Erzeugen von Testaktivitäten
   // Future<void> demoSaveActivity() async {
   //   Activity? act1 = Activity(
-  //     date: '2024-06-08',
-  //     meditation: false,
-  //     pomodoro: false,
-  //     exercise: false,
+  //     date: '2024-06-16',
+  //     meditation: true,
+  //     pomodoro: true,
+  //     exercise: true,
+  //     review: true,
+  //     rating: 'good',
+  //     note: 'all done :)',
+  //     medStreak: 1,
+  //     pomStreak: 1,
+  //     exStreak: 1,
+  //     revStreak: 1,
+  //     pomSessions: 2,
+  //   );
+  //   Activity? act2 = Activity(
+  //     date: '2024-06-18',
+  //     meditation: true,
+  //     pomodoro: true,
+  //     exercise: true,
   //     review: false,
   //     rating: 'empty',
   //     note: '',
-  //     medStreak: 0,
-  //     pomStreak: 0,
-  //     exStreak: 0,
+  //     medStreak: 3,
+  //     pomStreak: 1,
+  //     exStreak: 3,
   //     revStreak: 0,
-  //     pomSessions: 0,
+  //     pomSessions: 1,
   //   );
-  //   Activity? act2 = Activity(
-  //     date: '2024-06-12',
+  //   Activity? act3 = Activity(
+  //     date: '2024-06-17',
   //     meditation: true,
   //     pomodoro: false,
   //     exercise: true,
   //     review: false,
   //     rating: 'empty',
   //     note: '',
-  //     medStreak: 10,
-  //     pomStreak: 5,
-  //     exStreak: 4,
-  //     revStreak: 2,
-  //     pomSessions: 0,
-  //   );
-  //   Activity? act3 = Activity(
-  //     date: '2024-06-02',
-  //     meditation: false,
-  //     pomodoro: false,
-  //     exercise: false,
-  //     review: false,
-  //     rating: 'empty',
-  //     note: '',
-  //     medStreak: 0,
-  //     pomStreak: 0,
-  //     exStreak: 0,
-  //     revStreak: 0,
+  //     medStreak: 2,
+  //     pomStreak: 1,
+  //     exStreak: 2,
+  //     revStreak: 1,
   //     pomSessions: 0,
   //   );
   //   await HiveService.saveActivity(act1);
   //   await HiveService.saveActivity(act2);
   //   await HiveService.saveActivity(act3);
-  //   // await loadAllActivities();
   // }
 
   Future<void> loadData() async {

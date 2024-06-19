@@ -83,11 +83,10 @@ class ExerciseModel extends TimerModel {
         timeInSec--;
       } else {
         generateRandomExercise();
-        // audioPlayer.play(AssetSource(Assets.reminderSound));
         audioPlayer.play(Assets.reminderSound);
         revModel.exDailySessionDone = true;
         stopTimer(reset: reset);
-        completer.complete(); // Signalisiert das Ende des Timers
+        completer.complete();
       }
       notifyListeners();
     });

@@ -84,7 +84,10 @@ class RandomExerciseWidget extends StatelessWidget {
                   optList: exModel.cyclesList,
                   unit: 'min',
                   value: exModel.time,
-                  onChanged: exModel.timerSet,
+                  onChanged: (int? time) {
+                    exModel.timerSet(time);
+                    exModel.reminderIsActivated = false;
+                  },
                   hintText: 'Duration: ',
                   icon: const Icon(Icons.watch_later_outlined),
                 ),
