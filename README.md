@@ -31,7 +31,7 @@ Für das tägliche Nutzen der genannten Funktionen erhöht sich deren Streak (La
 
 <br>
 <div align="center">
-  <img src="readme_images/mobile/home/home_1.png" alt="home page" style="width:20%; max-width:400px">
+  <img src="readme_images/mobile/home/home_1.png" alt="home page" style="margin-right: 40px; width:20%; max-width:400px">
   <img src="readme_images/mobile/home/home_streak.png" alt="home page with streaks" style="width:20%; max-width:400px">
 </div>
 <br>
@@ -52,7 +52,7 @@ Für das tägliche Nutzen der genannten Funktionen erhöht sich deren Streak (La
 
 <br>
 <div align="center">
-  <img src="readme_images/mobile/history/history_1.png" alt="history page with one activity" style="width:20%; max-width:400px">
+  <img src="readme_images/mobile/history/history_1.png" alt="history page with one activity" style="margin-right: 40px; width:20%; max-width:400px">
   <img src="readme_images/mobile/history/history_2.png" alt="history page with four activities" style="width:20%; max-width:400px">
 </div>
 <br>
@@ -73,8 +73,8 @@ Manchmal tut es einfach gut, die kreisenden Gedanken zur Ruhe zu bringen. Medita
 
 <br>
 <div align="center">
-  <img src="readme_images/mobile/meditation/meditation_1.png" alt="random exercise time choice" style="width:20%; max-width:400px">
-  <img src="readme_images/mobile/meditation/meditation_2.png" alt="random exercise cycle choice" style="width:20%; max-width:400px">
+  <img src="readme_images/mobile/meditation/meditation_1.png" alt="random exercise time choice" style="margin-right: 40px; width:20%; max-width:400px">
+  <img src="readme_images/mobile/meditation/meditation_2.png" alt="random exercise cycle choice" style="margin-right: 40px; width:20%; max-width:400px">
   <img src="readme_images/mobile/meditation/meditation_3.png" alt="exercise page everything set" style="width:20%; max-width:400px">
 </div>
 <br>
@@ -110,8 +110,8 @@ Schonmal von der Pomodoro-Technik gehört? Die Pomodoro-Technik ist beliebt unte
 
 <br>
 <div align="center">
-  <img src="readme_images/mobile/pomodoro/pomodoro_1.png" alt="pomodoro timer" style="width:20%; max-width:400px">
-  <img src="readme_images/mobile/pomodoro/pomodoro_2.png" alt="pomodoro timer time choice" style="width:20%; max-width:400px">
+  <img src="readme_images/mobile/pomodoro/pomodoro_1.png" alt="pomodoro timer" style="margin-right: 40px; width:20%; max-width:400px">
+  <img src="readme_images/mobile/pomodoro/pomodoro_2.png" alt="pomodoro timer time choice" style="margin-right: 40px; width:20%; max-width:400px">
   <img src="readme_images/mobile/pomodoro/pomodoro_3.png" alt="pomodoro timer time set" style="width:20%; max-width:400px">
 </div>
 <br>
@@ -120,14 +120,14 @@ Schonmal von der Pomodoro-Technik gehört? Die Pomodoro-Technik ist beliebt unte
 <summary><span style="font-weight: bold">GIF - Pomodoro-Timer</span></summary>
 
 <br>
-  <div align="center" style="display: flex;">
+  <div align="center">
     <div style="text-align: center;">
       <p>Ende Arbeitsphase</p>
-      <img src="readme_images/mobile/pomodoro/pomodoro_work_end.gif" alt="pomodoro timer work phase end" style="width:80%; max-width:400px">
+      <img src="readme_images/mobile/pomodoro/pomodoro_work_end.gif" alt="pomodoro timer work phase end" style="width:20%; max-width:400px; display:inline-block;">
     </div>
     <div style="text-align: center;">
       <p>Ende Pause</p>
-      <img src="readme_images/mobile/pomodoro/pomodoro_break_end.gif" alt="pomodoro timer break phase end" style="width:80%; max-width:400px">
+      <img src="readme_images/mobile/pomodoro/pomodoro_break_end.gif" alt="pomodoro timer break phase end" style="width:20%; max-width:400px; display:inline-block;">
     </div>
   </div>
 <br>
@@ -155,7 +155,7 @@ Lass dich daran erinnern, kleine sportliche Übungen durchzuführen oder einfach
 
 <br>
 <div align="center">
-  <img src="readme_images/mobile/exercise/exercise_1.png" alt="exercise page" style="width:20%; max-width:400px">
+  <img src="readme_images/mobile/exercise/exercise_1.png" alt="exercise page" style="margin-right: 40px; width:20%; max-width:400px">
   <img src="readme_images/mobile/exercise/exercise_2.png" alt="exercise list" style="width:20%; max-width:400px">
 </div>
 <br>
@@ -166,8 +166,8 @@ Der Random Exercise Timer erinnert dich dabei an eine zufällige Tätigkeit aus 
 
 <br>
 <div align="center">
-  <img src="readme_images/mobile/exercise/exercise_3.png" alt="random exercise time choice" style="width:20%; max-width:400px">
-  <img src="readme_images/mobile/exercise/exercise_4.png" alt="random exercise cycle choice" style="width:20%; max-width:400px">
+  <img src="readme_images/mobile/exercise/exercise_3.png" alt="random exercise time choice" style="margin-right: 40px; width:20%; max-width:400px">
+  <img src="readme_images/mobile/exercise/exercise_4.png" alt="random exercise cycle choice" style="margin-right: 40px; width:20%; max-width:400px">
   <img src="readme_images/mobile/exercise/exercise_5.png" alt="exercise page everything set" style="width:20%; max-width:400px">
 </div>
 <br>
@@ -199,8 +199,8 @@ Wie war eigentlich dein Tag? Viel zu selten hält man inne und reflektiert, wie 
 
 <br>
 <div align="center">
-  <img src="readme_images/mobile/review/review_1.png" alt="pomodoro timer" style="width:20%; max-width:400px">
-  <img src="readme_images/mobile/review/review_2.png" alt="pomodoro timer time choice" style="width:20%; max-width:400px">
+  <img src="readme_images/mobile/review/review_1.png" alt="pomodoro timer" style="margin-right: 40px; width:20%; max-width:400px">
+  <img src="readme_images/mobile/review/review_2.png" alt="pomodoro timer time choice" style="margin-right: 40px; width:20%; max-width:400px">
   <img src="readme_images/mobile/review/review_3.png" alt="pomodoro timer time set" style="width:20%; max-width:400px">
 </div>
 <br>
