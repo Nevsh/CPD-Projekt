@@ -1,12 +1,13 @@
 import 'dart:async';
 
-import 'package:audioplayers/audioplayers.dart';
 import 'package:cpd_project/models/review_model.dart';
 import 'package:cpd_project/models/timer_model.dart';
 
 import '../config/assets.dart';
 
 class PomodoroTimerModel extends TimerModel {
+  PomodoroTimerModel({required super.audioPlayer});
+
   int _breakTime = 0;
   int _timeSelected = 0;
   bool _focusSessionDone = false;
@@ -43,16 +44,18 @@ class PomodoroTimerModel extends TimerModel {
   @override
   void startTimer(ReviewModel revModel) {
     notifyListeners();
-    timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
+    timer = Timer.periodic(const Duration(milliseconds: 1), (_) {
+      // timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
       if (timeInSec > 0) {
         timeInSec--;
         if (timeInSec == 0) {
-          audioPlayer.play(AssetSource(Assets.doneSound));
-          revModel.pomDailySessionDone = true;
+          // audioPlayer.play(AssetSource(Assets.doneSound));
+          audioPlayer.play(Assets.doneSound);
           if (_focusSessionDone) {
             stopTimer(reset: false);
             maxTime = _timeSelected;
           } else {
+            revModel.pomDailySessionDone = true;
             _focusSessionDone = true;
             timeInSec = _breakTime;
             maxTime = _breakTime;

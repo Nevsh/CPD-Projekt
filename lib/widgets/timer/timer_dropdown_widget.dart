@@ -59,7 +59,8 @@ class TimerDropdown extends StatelessWidget {
               value: entry.value,
               child: timerModel is PomodoroTimerModel
                   ? Text('${entry.value} / ${optList[entry.key]} $unit')
-                  : Text('${entry.value} $unit'),
+                  : Text(
+                      '${entry.value} ${entry.key == 0 && unit == 'cycles' ? 'cycle' : unit}'),
             );
           },
         ).toList(),

@@ -34,7 +34,9 @@ class HistoryPage extends StatelessWidget {
               children: [
                 const SizedBox(height: 32),
                 heading(
-                  "Last $numOfActivities activities",
+                  numOfActivities > 1
+                      ? 'Last $numOfActivities Activities'
+                      : 'Last Activity',
                   mainHeading,
                   Palette.hisMainHeadingColor,
                 ),

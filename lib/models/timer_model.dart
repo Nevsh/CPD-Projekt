@@ -1,15 +1,17 @@
 import 'dart:async';
 
-import 'package:audioplayers/audioplayers.dart';
+import 'package:cpd_project/audio_player/audio_player_interface.dart';
 import 'package:cpd_project/models/review_model.dart';
 import 'package:flutter/material.dart';
 
 abstract class TimerModel extends ChangeNotifier {
+  TimerModel({required this.audioPlayer});
+
+  final AudioPlayerInterface audioPlayer;
   int? time;
   int timeInSec = 0;
   int maxTime = 0;
   Timer? timer;
-  final AudioPlayer audioPlayer = AudioPlayer();
 
   List<int> get durationList;
 

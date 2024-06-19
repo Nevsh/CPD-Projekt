@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:audioplayers/audioplayers.dart';
 import 'package:cpd_project/models/review_model.dart';
 import 'package:cpd_project/models/timer_model.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +9,8 @@ import '../config/assets.dart';
 import '../data/hive_service.dart';
 
 class ExerciseModel extends TimerModel {
+  ExerciseModel({required super.audioPlayer});
+
   String _userInput = '';
   String _randomExercise = 'Exercise';
   int? _numOfCycles;
@@ -76,12 +77,14 @@ class ExerciseModel extends TimerModel {
   Future<void> startTimer(ReviewModel revModel, {bool reset = true}) async {
     final completer = Completer<void>();
 
-    timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
+    // timer = Timer.periodic(const Duration(milliseconds: 10), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (timeInSec > 0) {
         timeInSec--;
       } else {
         generateRandomExercise();
-        audioPlayer.play(AssetSource(Assets.reminderSound));
+        // audioPlayer.play(AssetSource(Assets.reminderSound));
+        audioPlayer.play(Assets.reminderSound);
         revModel.exDailySessionDone = true;
         stopTimer(reset: reset);
         completer.complete(); // Signalisiert das Ende des Timers

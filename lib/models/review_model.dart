@@ -28,6 +28,24 @@ class ReviewModel extends ChangeNotifier {
     }
   }
 
+  set activity(Activity? act) {
+    if (act != null) {
+      _activity = act;
+    }
+  }
+
+  set lastActivity(Activity? act) {
+    if (act != null) {
+      _lastActivity = act;
+    }
+  }
+
+  set activities(List<Activity> acts) {
+    if (acts.isNotEmpty) {
+      _activities = acts;
+    }
+  }
+
   set medDailySessionDone(bool done) {
     if (_activity != null && !_activity!.meditation) {
       _activity!.meditation = done;
@@ -171,57 +189,57 @@ class ReviewModel extends ChangeNotifier {
   }
 
   // Erzeugen von Testaktivitäten
-  Future<void> demoSaveActivity() async {
-    Activity? act1 = Activity(
-      date: '2024-06-08',
-      meditation: false,
-      pomodoro: false,
-      exercise: false,
-      review: false,
-      rating: 'empty',
-      note: '',
-      medStreak: 0,
-      pomStreak: 0,
-      exStreak: 0,
-      revStreak: 0,
-      pomSessions: 0,
-    );
-    Activity? act2 = Activity(
-      date: '2024-06-12',
-      meditation: true,
-      pomodoro: false,
-      exercise: true,
-      review: false,
-      rating: 'empty',
-      note: '',
-      medStreak: 10,
-      pomStreak: 5,
-      exStreak: 4,
-      revStreak: 2,
-      pomSessions: 0,
-    );
-    Activity? act3 = Activity(
-      date: '2024-06-02',
-      meditation: false,
-      pomodoro: false,
-      exercise: false,
-      review: false,
-      rating: 'empty',
-      note: '',
-      medStreak: 0,
-      pomStreak: 0,
-      exStreak: 0,
-      revStreak: 0,
-      pomSessions: 0,
-    );
-    await HiveService.saveActivity(act1);
-    await HiveService.saveActivity(act2);
-    await HiveService.saveActivity(act3);
-    // await loadAllActivities();
-  }
+  // Future<void> demoSaveActivity() async {
+  //   Activity? act1 = Activity(
+  //     date: '2024-06-08',
+  //     meditation: false,
+  //     pomodoro: false,
+  //     exercise: false,
+  //     review: false,
+  //     rating: 'empty',
+  //     note: '',
+  //     medStreak: 0,
+  //     pomStreak: 0,
+  //     exStreak: 0,
+  //     revStreak: 0,
+  //     pomSessions: 0,
+  //   );
+  //   Activity? act2 = Activity(
+  //     date: '2024-06-12',
+  //     meditation: true,
+  //     pomodoro: false,
+  //     exercise: true,
+  //     review: false,
+  //     rating: 'empty',
+  //     note: '',
+  //     medStreak: 10,
+  //     pomStreak: 5,
+  //     exStreak: 4,
+  //     revStreak: 2,
+  //     pomSessions: 0,
+  //   );
+  //   Activity? act3 = Activity(
+  //     date: '2024-06-02',
+  //     meditation: false,
+  //     pomodoro: false,
+  //     exercise: false,
+  //     review: false,
+  //     rating: 'empty',
+  //     note: '',
+  //     medStreak: 0,
+  //     pomStreak: 0,
+  //     exStreak: 0,
+  //     revStreak: 0,
+  //     pomSessions: 0,
+  //   );
+  //   await HiveService.saveActivity(act1);
+  //   await HiveService.saveActivity(act2);
+  //   await HiveService.saveActivity(act3);
+  //   // await loadAllActivities();
+  // }
 
   Future<void> loadData() async {
-    await demoSaveActivity();
+    // await demoSaveActivity();
     await loadAllActivities();
     await loadLastActivity();
     await loadActivity();
