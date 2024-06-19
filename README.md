@@ -51,7 +51,7 @@ Für das tägliche Nutzen der genannten Funktionen erhöht sich deren Streak (La
 Über die untere Navigationsleiste kann man neben der Homepage auf die History (Verlauf) zugreifen und sich dort eine Übersicht über die letzten sieben Nutzungsaktivitäten der App anschauen. Zu den einzelnen Aktivitäten wird jeweils aufgelistet, von wann die Aktivität ist, welche Funktionen genutzt wurden und das Review an dem Tag, sprich die eingeschätzte Stimmung, mit oder ohne eine zusätzliche Notiz.
 
 <br>
-<div style="display: flex; justify-content: center; gap: 40px;">
+<div align="center">
   <img src="readme_images/mobile/history/history_1.png" alt="history page with one activity" style="width:20%; max-width:400px">
   <img src="readme_images/mobile/history/history_2.png" alt="history page with four activities" style="width:20%; max-width:400px">
 </div>
@@ -72,7 +72,7 @@ Für das tägliche Nutzen der genannten Funktionen erhöht sich deren Streak (La
 Manchmal tut es einfach gut, die kreisenden Gedanken zur Ruhe zu bringen. Meditation ist mittlerweile ein gängiges Mittel, um einen Ausgleich im stressigen Alltag zu schaffen. Dieser Meditation-Timer bietet dir jeden Tag die Möglichkeit, für eine kurze Zeit abzuschalten. Nutze daher jeden Tag die Chance, deinen Geist wieder mit deinem Körper in Einklang zu bringen. Der Meditation-Timer endet immer mit einem angenehmen "Gong"-Klang.
 
 <br>
-<div style="display: flex; justify-content: center; gap: 40px;">
+<div align="center">
   <img src="readme_images/mobile/meditation/meditation_1.png" alt="random exercise time choice" style="width:20%; max-width:400px">
   <img src="readme_images/mobile/meditation/meditation_2.png" alt="random exercise cycle choice" style="width:20%; max-width:400px">
   <img src="readme_images/mobile/meditation/meditation_3.png" alt="exercise page everything set" style="width:20%; max-width:400px">
@@ -109,7 +109,7 @@ Manchmal tut es einfach gut, die kreisenden Gedanken zur Ruhe zu bringen. Medita
 Schonmal von der Pomodoro-Technik gehört? Die Pomodoro-Technik ist beliebt unter Leuten, die gerne fokussiert arbeiten. Man arbeitet dabei in festen Zeitabschnitten, die meist zwischen 25 - 90 Minuten lang sind. Nach diesen Zeitabschnitten folgt immer eine Pause, um dem Kopf ein wenig Zeit zum Durchatmen zu geben. Das ist ein guter Ansatz, um Burnout vorzubeugen. Der Pomodoro-Timer hier hilft dir dabei, dich nur auf deine Arbeit zu konzentrieren. Stelle einfach deine bevorzugte Dauer für einen Arbeitsabschnitt ein. Ist es Zeit für eine Pause, gibt dir der Pomodoro-Timer Bescheid in Form eines Signaltons.
 
 <br>
-<div style="display: flex; justify-content: center; gap: 40px;">
+<div align="center">
   <img src="readme_images/mobile/pomodoro/pomodoro_1.png" alt="pomodoro timer" style="width:20%; max-width:400px">
   <img src="readme_images/mobile/pomodoro/pomodoro_2.png" alt="pomodoro timer time choice" style="width:20%; max-width:400px">
   <img src="readme_images/mobile/pomodoro/pomodoro_3.png" alt="pomodoro timer time set" style="width:20%; max-width:400px">
@@ -120,9 +120,7 @@ Schonmal von der Pomodoro-Technik gehört? Die Pomodoro-Technik ist beliebt unte
 <summary><span style="font-weight: bold">GIF - Pomodoro-Timer</span></summary>
 
 <br>
-<div style="display: flex; justify-content: center; gap: 40px;">
-<div style="display: flex; justify-content: center; gap: 20px; align-items: center; flex-direction: column;">
-  <div style="display: flex; gap: 20px;">
+  <div align="center" style="display: flex;">
     <div style="text-align: center;">
       <p>Ende Arbeitsphase</p>
       <img src="readme_images/mobile/pomodoro/pomodoro_work_end.gif" alt="pomodoro timer work phase end" style="width:80%; max-width:400px">
@@ -132,8 +130,6 @@ Schonmal von der Pomodoro-Technik gehört? Die Pomodoro-Technik ist beliebt unte
       <img src="readme_images/mobile/pomodoro/pomodoro_break_end.gif" alt="pomodoro timer break phase end" style="width:80%; max-width:400px">
     </div>
   </div>
-</div>
-</div>
 <br>
 </details>
 
@@ -158,7 +154,7 @@ Schonmal von der Pomodoro-Technik gehört? Die Pomodoro-Technik ist beliebt unte
 Lass dich daran erinnern, kleine sportliche Übungen durchzuführen oder einfach nur zwischendurch mal aufzustehen und etwas zu trinken. Damit verhinderst du aufkommende Trägheit und bleibst tagsüber körperlich und geistig fit. Du kannst dafür alle möglichen Tätigkeiten einer Liste hinzufügen.
 
 <br>
-<div style="display: flex; justify-content: center; gap: 40px;">
+<div align="center">
   <img src="readme_images/mobile/exercise/exercise_1.png" alt="exercise page" style="width:20%; max-width:400px">
   <img src="readme_images/mobile/exercise/exercise_2.png" alt="exercise list" style="width:20%; max-width:400px">
 </div>
@@ -169,7 +165,7 @@ Lass dich daran erinnern, kleine sportliche Übungen durchzuführen oder einfach
 Der Random Exercise Timer erinnert dich dabei an eine zufällige Tätigkeit aus deiner zuvor erstellten Liste. Sei also bereit spontan mal ein paar Liegestütze machen. Du entscheidest selbst wann und wie oft du erinnert werden möchtest. Nach Ablauf des Timers ertönt ein Signalton.
 
 <br>
-<div style="display: flex; justify-content: center; gap: 40px;">
+<div align="center">
   <img src="readme_images/mobile/exercise/exercise_3.png" alt="random exercise time choice" style="width:20%; max-width:400px">
   <img src="readme_images/mobile/exercise/exercise_4.png" alt="random exercise cycle choice" style="width:20%; max-width:400px">
   <img src="readme_images/mobile/exercise/exercise_5.png" alt="exercise page everything set" style="width:20%; max-width:400px">
@@ -202,7 +198,7 @@ Der Random Exercise Timer erinnert dich dabei an eine zufällige Tätigkeit aus 
 Wie war eigentlich dein Tag? Viel zu selten hält man inne und reflektiert, wie es einem denn so geht. Oder die Tage gehen vorüber und man kann sich nicht mehr daran erinnern, was man diese Woche alles unternommen hat. Die Review-Funktion soll einem eine Möglichkeit bieten, kurz festzuhalten, wie man sich nach einem Tag fühlt. Man kann über eine Emoji-Skala einordnen, wie die Stimmung von einem ist und hat die Möglichkeit, eine kurze Notiz zu verfassen, um zum Beispiel ein besonderes Event des Tages hervorzuheben. Das Ganze dient als eine Art kleiner Tagebucheintrag, der als Gedächtnisstütze fungieren kann, aber auch um sich vor Augen zu führen, was einen womöglich momentan (emotional) beschäftigt.
 
 <br>
-<div style="display: flex; justify-content: center; gap: 40px;">
+<div align="center">
   <img src="readme_images/mobile/review/review_1.png" alt="pomodoro timer" style="width:20%; max-width:400px">
   <img src="readme_images/mobile/review/review_2.png" alt="pomodoro timer time choice" style="width:20%; max-width:400px">
   <img src="readme_images/mobile/review/review_3.png" alt="pomodoro timer time set" style="width:20%; max-width:400px">
