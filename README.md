@@ -7,22 +7,22 @@
 </h4>
 
 <p align="center">
-  <a href="#die-app">App</a> •
+  <a href="#app">App</a> •
   <a href="#tools-und-quellen">Tools und Quellen</a>
 </p>
-
 
 # App
 
 ## Main Page
 
 ### Home
+
 Diese zentrale Seite der App bietet einen Überblick über alle vorhandenen Funktionen.
+
 - Meditation-Timer
 - Pomodoro-Timer
 - Exercise-Reminder
 - Review
-
 
 <br>
 Wurde eine Funktion genutzt, wird dem Nutzer dies erkenntlich gemacht, indem ein Haken beim entsprechenden Symbol der Funktion zum Beispiel bei der Streak-Übersicht gesetzt wird.
@@ -69,6 +69,7 @@ Für das tägliche Nutzen der genannten Funktionen erhöht sich deren Streak (La
 <br>
 
 ## Meditation-Timer
+
 Manchmal tut es einfach gut, die kreisenden Gedanken zur Ruhe zu bringen. Meditation ist mittlerweile ein gängiges Mittel, um einen Ausgleich im stressigen Alltag zu schaffen. Dieser Meditation-Timer bietet dir jeden Tag die Möglichkeit, für eine kurze Zeit abzuschalten. Nutze daher jeden Tag die Chance, deinen Geist wieder mit deinem Körper in Einklang zu bringen. Der Meditation-Timer endet immer mit einem angenehmen "Gong"-Klang.
 
 <br>
@@ -106,6 +107,7 @@ Manchmal tut es einfach gut, die kreisenden Gedanken zur Ruhe zu bringen. Medita
 <br>
 
 ## Pomodoro-Timer
+
 Schonmal von der Pomodoro-Technik gehört? Die Pomodoro-Technik ist beliebt unter Leuten, die gerne fokussiert arbeiten. Man arbeitet dabei in festen Zeitabschnitten, die meist zwischen 25 - 90 Minuten lang sind. Nach diesen Zeitabschnitten folgt immer eine Pause, um dem Kopf ein wenig Zeit zum Durchatmen zu geben. Das ist ein guter Ansatz, um Burnout vorzubeugen. Der Pomodoro-Timer hier hilft dir dabei, dich nur auf deine Arbeit zu konzentrieren. Stelle einfach deine bevorzugte Dauer für einen Arbeitsabschnitt ein. Ist es Zeit für eine Pause, gibt dir der Pomodoro-Timer Bescheid in Form eines Signaltons.
 
 <br>
@@ -151,6 +153,7 @@ Schonmal von der Pomodoro-Technik gehört? Die Pomodoro-Technik ist beliebt unte
 ## Exercise-Reminder
 
 ### Auflisten von Tätigkeiten
+
 Lass dich daran erinnern, kleine sportliche Übungen durchzuführen oder einfach nur zwischendurch mal aufzustehen und etwas zu trinken. Damit verhinderst du aufkommende Trägheit und bleibst tagsüber körperlich und geistig fit. Du kannst dafür alle möglichen Tätigkeiten einer Liste hinzufügen.
 
 <br>
@@ -162,20 +165,34 @@ Lass dich daran erinnern, kleine sportliche Übungen durchzuführen oder einfach
 <br>
 
 ### Aktiver durch Erinnerung
+
 Der Random Exercise Timer erinnert dich dabei an eine zufällige Tätigkeit aus deiner zuvor erstellten Liste. Sei also bereit spontan mal ein paar Liegestütze machen. Du entscheidest selbst wann und wie oft du erinnert werden möchtest. Nach Ablauf des Timers ertönt ein Signalton.
 
 <br>
-<div align="center">
+<!-- <div align="center">
   <img src="readme_images/mobile/exercise/exercise_3.png" alt="random exercise time choice" style="margin-right: 40px; width:20%; max-width:400px">
   <img src="readme_images/mobile/exercise/exercise_4.png" alt="random exercise cycle choice" style="margin-right: 40px; width:20%; max-width:400px">
   <img src="readme_images/mobile/exercise/exercise_5.png" alt="exercise page everything set" style="width:20%; max-width:400px">
-</div>
+</div> -->
+<table>
+  <tr>
+    <td align="center">
+      <img src="readme_images/mobile/exercise/exercise_3.png" alt="random exercise time choice" width="80%">
+    </td>
+    <td align="center">
+      <img src="readme_images/mobile/exercise/exercise_4.png" alt="random exercise cycle choice" width="80%">
+    </td>
+    <td align="center">
+      <img src="readme_images/mobile/exercise/exercise_5.png" alt="exercise page everything set" width="80%">
+    </td>
+  </tr>
+</table>
 <br>
 <br>
 <br>
 
 <div align="center">
-    <img src="readme_images/mobile/exercise/random_exercise.gif" alt="Exercise reminder" style="width:35%; max-width:600px">
+    <img src="readme_images/mobile/exercise/random_exercise.gif" alt="Exercise reminder" width="30%">
 </div>
 <br>
 
@@ -195,6 +212,7 @@ Der Random Exercise Timer erinnert dich dabei an eine zufällige Tätigkeit aus 
 <br>
 
 ## Review
+
 Wie war eigentlich dein Tag? Viel zu selten hält man inne und reflektiert, wie es einem denn so geht. Oder die Tage gehen vorüber und man kann sich nicht mehr daran erinnern, was man diese Woche alles unternommen hat. Die Review-Funktion soll einem eine Möglichkeit bieten, kurz festzuhalten, wie man sich nach einem Tag fühlt. Man kann über eine Emoji-Skala einordnen, wie die Stimmung von einem ist und hat die Möglichkeit, eine kurze Notiz zu verfassen, um zum Beispiel ein besonderes Event des Tages hervorzuheben. Das Ganze dient als eine Art kleiner Tagebucheintrag, der als Gedächtnisstütze fungieren kann, aber auch um sich vor Augen zu führen, was einen womöglich momentan (emotional) beschäftigt.
 
 <br>
@@ -220,10 +238,9 @@ Wie war eigentlich dein Tag? Viel zu selten hält man inne und reflektiert, wie 
 <br>
 <br>
 
-
 # Tools und Quellen
 
-* Flutter mit [Android Studio](https://developer.android.com/studio?hl=de)
-* NoSQL Datenbank [Hive](https://pub.dev/packages/hive)
-* Icons von [Icons8](https://icons8.de/)
-* Sounds von [Pixabay](https://pixabay.com/de/sound-effects/) (Pixabay, floraphonic)
+- Flutter mit [Android Studio](https://developer.android.com/studio?hl=de)
+- NoSQL Datenbank [Hive](https://pub.dev/packages/hive)
+- Icons von [Icons8](https://icons8.de/)
+- Sounds von [Pixabay](https://pixabay.com/de/sound-effects/) (Pixabay, floraphonic)
